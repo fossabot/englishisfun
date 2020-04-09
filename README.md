@@ -1,4 +1,4 @@
-## Kotlin Sample App
+## English Is Fun
 [![CircleCI](https://circleci.com/gh/VMadalin/kotlin-sample-app/tree/master.svg?style=shield)](https://circleci.com/gh/VMadalin/kotlin-sample-app/tree/master)
 [![Codecov](https://codecov.io/gh/VMadalin/kotlin-sample-app/coverage.svg)](https://codecov.io/gh/VMadalin/kotlin-sample-app)
 [![Codacy](https://api.codacy.com/project/badge/Grade/c5eaf30c01da4cdeb3807a3bf3d98a70)](https://www.codacy.com/manual/jpaya17/englishisfun?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jpaya17/englishisfun&amp;utm_campaign=Badge_Grade)
@@ -9,7 +9,7 @@
 
 <img src="screenshots/demo/demo.gif" width="250" align="right" hspace="20">
 
-Kotlin Sample App is a sample project that presents modern, 2019 approach to [Android](https://www.android.com/) application development using [Kotlin](https://kotlinlang.org/) and latest tech-stack.
+English Is Fun is a sample project that presents modern, 2019 approach to [Android](https://www.android.com/) application development using [Kotlin](https://kotlinlang.org/) and latest tech-stack.
 
 The goal of the project is to demonstrate best practices, provide a set of guidelines, and present modern Android
 application architecture that is modular, scalable, maintainable and testable. This application may look simple, but it
@@ -36,7 +36,6 @@ First off, you require the latest Android Studio 3.5.3 (or newer) to be able to 
 You need to supply API keys for the various services the app uses. That is currently Marvel and Fabric (Crashlytics). You can find information about how to gain access via these relevant links.
 
 -   Marvel: https://developer.marvel.com/
--   Firebase: https://get.fabric.io/
 
 When you obtain the keys, you can provide them to the app by putting the following in the `local.properties` project root file:
 

@@ -33,6 +33,7 @@ plugins {
     id(BuildPlugins.NAVIGATION_SAFE_ARGS)
     id(BuildPlugins.JACOCO)
     id(BuildPlugins.GRAPH_GENERATOR)
+    id(BuildPlugins.GOOGLE_SERVICES)
 }
 
 allOpen {
@@ -159,6 +160,7 @@ dependencies {
     implementation(Dependencies.CRASHLYTICS)
     implementation(Dependencies.PLAY_CORE)
     implementation(Dependencies.DAGGER)
+    implementation("com.google.firebase:firebase-analytics:17.3.0")
 
     debugImplementation(DebugDependencies.LEAKCANARY)
 

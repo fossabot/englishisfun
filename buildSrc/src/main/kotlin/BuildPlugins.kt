@@ -31,6 +31,8 @@ object BuildPlugins {
     const val JACOCO = "com.vanniktech.android.junit.jacoco"
     const val GRAPH_GENERATOR = "com.vanniktech.dependency.graph.generator"
 
+    const val GOOGLE_SERVICES = "com.google.gms.google-services"
+
     const val DETEKT = "plugins.detekt"
     const val DOKKA = "plugins.dokka"
     const val GIT_HOOKS = "plugins.git-hooks"

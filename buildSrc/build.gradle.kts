@@ -44,6 +44,7 @@ object PluginsVersions {
     const val SPOTLESS = "3.26.1"
     const val DETEKT = "1.2.2"
     const val GRAPH_GENERATOR = "0.6.0-SNAPSHOT"
+    const val GOOGLE_SERVICES = "4.3.3"
 }
 
 dependencies {
@@ -58,4 +59,5 @@ dependencies {
     implementation("com.pinterest:ktlint:${PluginsVersions.KTLINT}")
     implementation("com.diffplug.spotless:spotless-plugin-gradle:${PluginsVersions.SPOTLESS}")
     implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${PluginsVersions.DETEKT}")
+    implementation("com.google.gms:google-services:${PluginsVersions.GOOGLE_SERVICES}")
 }

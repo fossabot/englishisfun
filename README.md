@@ -295,33 +295,13 @@ Google Developers Codelabs provide a guided, tutorial, hands-on coding experienc
 -   [Android Developer Fundamentals](https://developer.android.com/courses/fundamentals-training/toc-v2)
 -   [Android Developer Codelabs](https://codelabs.developers.google.com/?cat=Android)
 
-## Authors
+## Author
 
 <a href="https://twitter.com/MValceleanu" target="_blank">
-  <img src="https://avatars0.githubusercontent.com/u/18151158?s=400&u=bd6e5ddff1df0d632b93855da0300410854b806e&v=4" width="70" align="left">
+  <img src="https://avatars0.githubusercontent.com/u/30294138?s=400&u=bd6e5ddff1df0d632b93855da0300410854b806e&v=4" width="70" align="left">
 </a>
 
-**Madalin Valceleanu**
+**Jose Maria Payá Castillo**
 
-[![Linkedin](https://img.shields.io/badge/-linkedin-grey?logo=linkedin)](https://www.linkedin.com/in/vmadalin/)
-[![Twitter](https://img.shields.io/badge/-twitter-grey?logo=twitter)](https://twitter.com/MValceleanu)
-[![Medium](https://img.shields.io/badge/-medium-grey?logo=medium)](https://medium.com/@vmadalin)
-[![Web](https://img.shields.io/badge/-web-grey?logo=appveyor)](http://vmadalin.com/)
-
-## License
-
-```license
-Copyright 2019 vmadalin.com
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-```
+[![Linkedin](https://img.shields.io/badge/-linkedin-grey?logo=linkedin)](https://www.linkedin.com/in/jpayacastillo/)
+[![Twitter](https://img.shields.io/badge/-twitter-grey?logo=twitter)](https://twitter.com/JoseMpaya)

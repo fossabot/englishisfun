@@ -21,6 +21,7 @@ jobs:
       - run: echo "signing.store.password=$SIGNING_STORE_PASSWORD" >> local.properties
       - restore_cache:
           key: gradle-{{ checksum "build.gradle.kts" }}
+      - run: sudo chmod +x gradlew
       - run:
           name: Run Detekt
           command: ./gradlew detekt

@@ -1,0 +1,18 @@
+$dokka.format:html
+$dokka.linkExtension:html
+$dokka.location:com.vmadalin.core.extensions$toHex(kotlin.ByteArray)com.vmadalin.core.extensions/kotlin.-byte-array/to-hex.html
+$dokka.location:com.vmadalin.core.extensions$toMD5(kotlin.String)com.vmadalin.core.extensions/kotlin.-string/to-m-d5.html
+com.vmadalin.core.annotations
+com.vmadalin.core.database
+com.vmadalin.core.database.characterfavorite
+com.vmadalin.core.database.migrations
+com.vmadalin.core.di
+com.vmadalin.core.di.modules
+com.vmadalin.core.di.scopes
+com.vmadalin.core.extensions
+com.vmadalin.core.mapper
+com.vmadalin.core.network
+com.vmadalin.core.network.repositiories
+com.vmadalin.core.network.responses
+com.vmadalin.core.network.services
+com.vmadalin.core.utils

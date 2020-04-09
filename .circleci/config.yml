@@ -1,0 +1,55 @@
+# CircleCI configuration file
+# https://circleci.com/docs/2.0/language-android
+version: 2.1
+orbs:
+  codecov: codecov/codecov@1.0.5
+jobs:
+  build:
+    working_directory: ~/kotlin-sample-app
+    docker:
+      - image: circleci/android:api-28
+    environment:
+      GRADLE_OPTS: -Xmx4g -Dorg.gradle.daemon=false
+      JVM_OPTS: -Xmx4g
+    steps:
+      - checkout
+      - run: echo "fabric.key=$FABRIC_KEY" >> local.properties
+      - run: echo "fabric.secret=$FABRIC_SECRET" >> local.properties
+      - run: echo "marvel.key.public=$MARVEL_KEY_PUBLIC" >> local.properties
+      - run: echo "marvel.key.private=$MARVEL_KEY_PRIVATE" >> local.properties
+      - run: echo "signing.key.alias=$SIGNING_KEY_ALIAS" >> local.properties
+      - run: echo "signing.key.password=$SIGNING_KEY_PASSWORD" >> local.properties
+      - run: echo "signing.store.file=$SIGNING_STORE_FILE" >> local.properties
+      - run: echo "signing.store.password=$SIGNING_STORE_PASSWORD" >> local.properties
+      - restore_cache:
+          key: gradle-{{ checksum "build.gradle.kts" }}
+      - run:
+          name: Run Detekt
+          command: ./gradlew detekt
+      - run:
+          name: Run Ktlint
+          command: ./gradlew ktlint
+      - run:
+          name: Run Lint
+          command: ./gradlew lintDevDebug
+      - run:
+          name: Run Spotless
+          command: ./gradlew spotlessKotlinCheck
+      - run:
+          name: Run Unit Tests
+          command: ./gradlew testDevDebugUnitTest
+      - run:
+          name: Generate Code Coverage
+          command: ./gradlew jacocoTestReportDevDebug
+      - run:
+          name: Generate Dependency Updates
+          command: ./gradlew dependencyUpdates -Drevision=release
+      - store_artifacts:
+          path: build/dependencyUpdates
+      - codecov/upload:
+          flags: unittest
+          conf: .codecov/config.yml
+      - save_cache:
+          paths:
+            - ~/.gradle
+          key: gradle-{{ checksum "build.gradle.kts" }}

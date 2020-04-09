@@ -297,11 +297,11 @@ Google Developers Codelabs provide a guided, tutorial, hands-on coding experienc
 
 ## Author
 
-<a href="https://twitter.com/MValceleanu" target="_blank">
+<a href="https://www.linkedin.com/in/jpayacastillo" target="_blank">
   <img src="https://avatars0.githubusercontent.com/u/30294138?s=400&u=bd6e5ddff1df0d632b93855da0300410854b806e&v=4" width="70" align="left">
 </a>
 
 **Jose Maria Payá Castillo**
 
-[![Linkedin](https://img.shields.io/badge/-linkedin-grey?logo=linkedin)](https://www.linkedin.com/in/jpayacastillo/)
+[![Linkedin](https://img.shields.io/badge/-linkedin-grey?logo=linkedin)](https://www.linkedin.com/in/jpayacastillo)
 [![Twitter](https://img.shields.io/badge/-twitter-grey?logo=twitter)](https://twitter.com/JoseMpaya)

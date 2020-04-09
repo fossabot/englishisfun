@@ -1,6 +1,6 @@
 ## English Is Fun
-[![CircleCI](https://circleci.com/gh/VMadalin/kotlin-sample-app/tree/master.svg?style=shield)](https://circleci.com/gh/VMadalin/kotlin-sample-app/tree/master)
-[![Codecov](https://codecov.io/gh/VMadalin/kotlin-sample-app/coverage.svg)](https://codecov.io/gh/VMadalin/kotlin-sample-app)
+[![CircleCI](https://circleci.com/gh/jpaya17/englishisfun/tree/master.svg?style=shield)](https://circleci.com/gh/jpaya17/englishisfun/tree/master)
+[![codecov](https://codecov.io/gh/jpaya17/englishisfun/branch/master/graph/badge.svg)](https://codecov.io/gh/jpaya17/englishisfun)
 [![Codacy](https://api.codacy.com/project/badge/Grade/c5eaf30c01da4cdeb3807a3bf3d98a70)](https://www.codacy.com/manual/jpaya17/englishisfun?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jpaya17/englishisfun&amp;utm_campaign=Badge_Grade)
 [![CodeFactor](https://www.codefactor.io/repository/github/jpaya17/englishisfun/badge)](https://www.codefactor.io/repository/github/jpaya17/englishisfun)
 [![CodeBeat](https://codebeat.co/badges/a21017bf-884a-41bf-8658-c0cfbb7c43fe)](https://codebeat.co/projects/github-com-jpaya17-englishisfun-master)

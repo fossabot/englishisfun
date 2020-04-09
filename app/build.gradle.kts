@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-import utils.createFabricProperties
 import dependencies.Dependencies
 import dependencies.DebugDependencies
 import dependencies.AnnotationProcessorsDependencies
@@ -34,7 +33,6 @@ plugins {
     id(BuildPlugins.NAVIGATION_SAFE_ARGS)
     id(BuildPlugins.JACOCO)
     id(BuildPlugins.GRAPH_GENERATOR)
-    id(BuildPlugins.FABRIC)
 }
 
 allOpen {
@@ -146,7 +144,6 @@ junitJacoco {
 }
 
 afterEvaluate {
-    createFabricProperties(this)
 }
 
 dependencies {

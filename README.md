@@ -45,10 +45,6 @@ When you obtain the keys, you can provide them to the app by putting the followi
 #Marvel API KEYS
 marvel.key.public = <insert>
 marvel.key.private = <insert>
-
-#Fabric API KEYS
-fabric.key = <insert>
-fabric.secret = <insert>
 ```
 
 Moreover, to sign your app for release you should generate an upload key and keystore following the [official documentation](https://developer.android.com/studio/publish/app-signing#sign-apk). Append the information used to generate it into `local.properties` project root file following the structure:

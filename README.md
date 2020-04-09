@@ -18,14 +18,14 @@ long application lifecycle management.
 
 ## Table of Contents
 
--   [Development](https://github.com/VMadalin/kotlin-sample-app#development)
--   [Design](https://github.com/VMadalin/kotlin-sample-app#design)
--   [Architecture](https://github.com/VMadalin/kotlin-sample-app#architecture)
--   [Documentation](https://github.com/VMadalin/kotlin-sample-app#documentation)
--   [Tech-stack](https://github.com/VMadalin/kotlin-sample-app#tech-stack)
--   [Resources](https://github.com/VMadalin/kotlin-sample-app#resources)
--   [Authors](https://github.com/VMadalin/kotlin-sample-app#authors)
--   [License](https://github.com/VMadalin/kotlin-sample-app#license)
+-   [Development](https://github.com/jpaya17/englishisfun#development)
+-   [Design](https://github.com/jpaya17/englishisfun#design)
+-   [Architecture](https://github.com/jpaya17/englishisfun#architecture)
+-   [Documentation](https://github.com/jpaya17/englishisfun#documentation)
+-   [Tech-stack](https://github.com/jpaya17/englishisfun#tech-stack)
+-   [Resources](https://github.com/jpaya17/englishisfun#resources)
+-   [Authors](https://github.com/jpaya17/englishisfun#authors)
+-   [License](https://github.com/jpaya17/englishisfun#license)
 
 ## Development
 

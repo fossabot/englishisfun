@@ -19,7 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="m">
-        <activity android:name="com.jpaya.englishisfun.SampleMainActivity">
+        <activity android:name=".SampleMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

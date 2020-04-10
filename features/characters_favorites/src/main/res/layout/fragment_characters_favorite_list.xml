@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.vmadalin.dynamicfeatures.charactersfavorites.ui.favorite.CharactersFavoriteViewModel" />
+            type="com.jpaya.dynamicfeatures.charactersfavorites.ui.favorite.CharactersFavoriteViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

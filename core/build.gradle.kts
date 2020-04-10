@@ -29,7 +29,7 @@ plugins {
 
 allOpen {
     // allows mocking for classes w/o directly opening them for release builds
-    annotation("com.vmadalin.core.annotations.OpenClass")
+    annotation("com.jpaya.core.annotations.OpenClass")
 }
 
 android {

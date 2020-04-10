@@ -6,7 +6,7 @@
 
         <variable
             name="character"
-            type="com.vmadalin.core.database.characterfavorite.CharacterFavorite" />
+            type="com.jpaya.core.database.characterfavorite.CharacterFavorite" />
 
     </data>
 

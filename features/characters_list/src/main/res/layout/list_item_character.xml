@@ -6,11 +6,11 @@
 
         <variable
             name="character"
-            type="com.vmadalin.dynamicfeatures.characterslist.ui.list.model.CharacterItem" />
+            type="com.jpaya.dynamicfeatures.characterslist.ui.list.model.CharacterItem" />
 
         <variable
             name="viewModel"
-            type="com.vmadalin.dynamicfeatures.characterslist.ui.list.CharactersListViewModel" />
+            type="com.jpaya.dynamicfeatures.characterslist.ui.list.CharactersListViewModel" />
     </data>
 
     <com.google.android.material.card.MaterialCardView

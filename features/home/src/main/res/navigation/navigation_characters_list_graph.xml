@@ -7,7 +7,7 @@
     tools:ignore="UnusedNavigation,UnusedIds">
     <fragment
         android:id="@+id/characters_list_fragment"
-        android:name="com.vmadalin.dynamicfeatures.characterslist.ui.list.CharactersListFragment"
+        android:name="com.jpaya.dynamicfeatures.characterslist.ui.list.CharactersListFragment"
         android:label="Characters">
         <action
             android:id="@+id/action_charactersListFragment_to_character_detail_fragment"
@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/character_detail_fragment"
-        android:name="com.vmadalin.dynamicfeatures.characterslist.ui.detail.CharacterDetailFragment">
+        android:name="com.jpaya.dynamicfeatures.characterslist.ui.detail.CharacterDetailFragment">
         <argument
             android:name="character_id"
             app:argType="long" />

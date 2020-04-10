@@ -31,7 +31,7 @@ object BuildTypeDebug : BuildType {
     override val isCrashlyticsEnabled = false
     override val isTestCoverageEnabled = true
 
-    const val applicationIdSuffix = ".debug"
+    const val applicationIdSuffix = ""
     const val versionNameSuffix = "-DEBUG"
 }
 

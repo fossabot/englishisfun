@@ -36,7 +36,7 @@ object ProductFlavorDevelop : BuildProductFlavor {
         namedDomainObjectContainer: NamedDomainObjectContainer<ProductFlavor>
     ): ProductFlavor {
         return namedDomainObjectContainer.create(name) {
-            applicationIdSuffix = ".dev"
+            applicationIdSuffix = ""
             versionNameSuffix = "-dev"
             dimension = BuildProductDimensions.ENVIRONMENT
         }

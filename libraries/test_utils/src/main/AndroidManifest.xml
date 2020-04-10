@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-package="com.vmadalin.libraries.testutils">
+package="com.jpaya.libraries.testutils">
 
 <application
     android:theme="@style/Theme.AppCompat">
 
-    <activity android:name=".TestFragmentActivity" />
+    <activity android:name="com.jpaya.libraries.testutils.TestFragmentActivity" />
 
-    <activity android:name=".TestCompatActivity" />
+    <activity android:name="com.jpaya.libraries.testutils.TestCompatActivity" />
 
     <activity
         android:name=".TestCompactActivityNoActionBar"

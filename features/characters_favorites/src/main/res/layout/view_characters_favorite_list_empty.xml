@@ -6,7 +6,7 @@
 
         <variable
             name="viewState"
-            type="com.vmadalin.dynamicfeatures.charactersfavorites.ui.favorite.CharactersFavoriteViewState" />
+            type="com.jpaya.dynamicfeatures.charactersfavorites.ui.favorite.CharactersFavoriteViewState" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

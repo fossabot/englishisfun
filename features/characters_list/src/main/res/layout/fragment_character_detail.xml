@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.vmadalin.dynamicfeatures.characterslist.ui.detail.CharacterDetailViewModel" />
+            type="com.jpaya.dynamicfeatures.characterslist.ui.detail.CharacterDetailViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout

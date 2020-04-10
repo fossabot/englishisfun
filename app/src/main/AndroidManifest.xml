@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.vmadalin.android">
+    package="com.jpaya.englishisfun">
 
     <dist:module dist:instant="true" />
 
@@ -19,7 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="m">
-        <activity android:name=".SampleMainActivity">
+        <activity android:name="com.jpaya.englishisfun.SampleMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

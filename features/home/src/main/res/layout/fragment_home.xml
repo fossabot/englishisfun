@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.vmadalin.dynamicfeatures.home.ui.HomeViewModel" />
+            type="com.jpaya.dynamicfeatures.home.ui.HomeViewModel" />
 
     </data>
 

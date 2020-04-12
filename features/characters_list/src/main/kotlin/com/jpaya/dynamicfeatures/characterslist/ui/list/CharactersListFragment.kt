@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.findNavController
 import androidx.paging.PagedList
+import androidx.recyclerview.widget.RecyclerView
 import com.jpaya.commons.ui.base.BaseFragment
+import com.jpaya.commons.ui.extensions.gridLayoutManager
 import com.jpaya.commons.ui.extensions.observe
 import com.jpaya.dynamicfeatures.characterslist.R
 import com.jpaya.dynamicfeatures.characterslist.databinding.FragmentCharactersListBinding
@@ -61,10 +63,10 @@ class CharactersListFragment :
      */
     override fun onInitDataBinding() {
         viewBinding.viewModel = viewModel
-        /*viewBinding.includeList.charactersList.apply {
+        view!!.findViewById<RecyclerView>(R.id.characters_list).apply {
             adapter = viewAdapter
             gridLayoutManager?.spanSizeLookup = viewAdapter.getSpanSizeLookup()
-        }*/
+        }
     }
 
     // ============================================================================================

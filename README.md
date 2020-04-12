@@ -29,32 +29,6 @@ long application lifecycle management.
 
 ## Development
 
-### Environment setup
-
-First off, you require the latest Android Studio 3.5.3 (or newer) to be able to build the app.
-
-You need to supply API keys for the various services the app uses. That is currently Marvel. You can find information about how to gain access via these relevant links.
-
--   Marvel: https://developer.marvel.com/
-
-When you obtain the keys, you can provide them to the app by putting the following in the `local.properties` project root file:
-
-```properties
-#Marvel API KEYS
-marvel.key.public = <insert>
-marvel.key.private = <insert>
-```
-
-Moreover, to sign your app for release you should generate an upload key and keystore following the [official documentation](https://developer.android.com/studio/publish/app-signing#sign-apk). Append the information used to generate it into `local.properties` project root file following the structure:
-
-```properties
-#Signing Config
-signing.key.alias = <insert>
-signing.key.password = <insert>
-signing.store.file = <insert>
-signing.store.password = <insert>
-```
-
 ### Code style
 
 To maintain the style and quality of the code, are used the bellow static analysis tools. All of them use properly configuration and you find them in the project root directory `.{toolName}`.

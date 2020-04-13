@@ -8,5 +8,5 @@ plugins {
 dependencies {
     implementation(project(BuildModules.Features.HOME))
 
-    implementation(Dependencies.RECYCLE_VIEW)
+    implementation(Dependencies.RECYCLER_VIEW)
 }

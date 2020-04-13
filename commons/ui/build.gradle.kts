@@ -14,8 +14,8 @@ junitJacoco {
 dependencies {
     implementation(Dependencies.LIFECYCLE_EXTENSIONS)
     implementation(Dependencies.LIFECYCLE_VIEWMODEL)
-    implementation(Dependencies.CONSTRAIN_LAYOUT)
-    implementation(Dependencies.RECYCLE_VIEW)
+    implementation(Dependencies.CONSTRAINT_LAYOUT)
+    implementation(Dependencies.RECYCLER_VIEW)
     implementation(Dependencies.CORE_KTX)
     implementation(Dependencies.FRAGMENT_KTX)
     implementation(Dependencies.NAVIGATION_FRAGMENT)

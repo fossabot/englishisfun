@@ -5,7 +5,6 @@ import extensions.addTestsDependencies
 import extensions.implementation
 import extensions.debugImplementation
 import extensions.getLocalProperty
-import extensions.buildConfigBooleanField
 import extensions.kapt
 
 plugins {
@@ -134,7 +133,7 @@ dependencies {
     implementation(Dependencies.KOTLIN)
     implementation(Dependencies.APPCOMPAT)
     implementation(Dependencies.MATERIAL)
-    implementation(Dependencies.CONSTRAIN_LAYOUT)
+    implementation(Dependencies.CONSTRAINT_LAYOUT)
     implementation(Dependencies.NAVIGATION_FRAGMENT)
     implementation(Dependencies.TIMBER)
     implementation(Dependencies.LOGGING)

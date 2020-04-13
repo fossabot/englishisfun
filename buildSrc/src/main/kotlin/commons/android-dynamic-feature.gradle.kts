@@ -9,7 +9,6 @@ import dependencies.Dependencies
 import dependencies.AnnotationProcessorsDependencies
 import extensions.addTestsDependencies
 import extensions.implementation
-import extensions.testImplementation
 import extensions.kapt
 
 plugins {
@@ -100,7 +99,7 @@ dependencies {
     implementation(Dependencies.LIFECYCLE_VIEWMODEL)
     implementation(Dependencies.CORE_KTX)
     implementation(Dependencies.FRAGMENT_KTX)
-    implementation(Dependencies.CONSTRAIN_LAYOUT)
+    implementation(Dependencies.CONSTRAINT_LAYOUT)
     implementation(Dependencies.DAGGER)
     implementation(Dependencies.TIMBER)
     implementation(Dependencies.LOGGING)

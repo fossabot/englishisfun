@@ -33,7 +33,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
 
     private val navGraphIds = listOf(
         R.navigation.navigation_characters_list_graph,
-        R.navigation.navigation_characters_favorites_graph
+        R.navigation.navigation_characters_favorites_graph,
+        R.navigation.navigation_abbreviations_graph
     )
 
     /**

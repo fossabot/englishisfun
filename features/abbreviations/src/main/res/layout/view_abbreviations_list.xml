@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewState"
+            type="com.jpaya.dynamicfeatures.abbreviations.ui.AbbreviationsListViewState" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:visible="@{viewState.isLoaded || viewState.addLoading || viewState.addError || viewState.NoMoreElements}">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/abbreviations_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:theme="@style/AppTheme.BackgroundStyle"
+            app:itemDecorationSpacing="@{@dimen/abbreviations_list_item_padding}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/list_item_abbreviation" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

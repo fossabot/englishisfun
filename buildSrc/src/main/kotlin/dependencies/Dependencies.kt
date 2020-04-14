@@ -31,4 +31,7 @@ object Dependencies {
     const val MOSHI_KTX = "com.squareup.moshi:moshi-kotlin:${BuildDependenciesVersions.MOSHI}"
     const val COIL = "io.coil-kt:coil:${BuildDependenciesVersions.COIL}"
     const val PLAY_CORE = "com.google.android.play:core:${BuildDependenciesVersions.PLAY_CORE}"
+    const val FIREBASE_ANALYTICS = "com.google.firebase:firebase-analytics-ktx:${BuildDependenciesVersions.FIREBASE_ANALYTICS}"
+    const val FIREBASE_FIRESTORE = "com.google.firebase:firebase-firestore-ktx:${BuildDependenciesVersions.FIREBASE_FIRESTORE}"
+    const val FIREBASE_AUTH = "com.google.firebase:firebase-auth:${BuildDependenciesVersions.FIREBASE_AUTH}"
 }

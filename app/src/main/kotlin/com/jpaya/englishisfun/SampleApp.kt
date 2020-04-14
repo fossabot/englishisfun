@@ -2,14 +2,14 @@ package com.jpaya.englishisfun
 
 import android.content.Context
 import com.google.android.play.core.splitcompat.SplitCompatApplication
-import com.jpaya.englishisfun.di.DaggerAppComponent
 import com.jpaya.core.di.CoreComponent
 import com.jpaya.core.di.DaggerCoreComponent
 import com.jpaya.core.di.modules.ContextModule
 import com.jpaya.core.utils.ThemeUtils
+import com.jpaya.englishisfun.di.DaggerAppComponent
+import timber.log.Timber
 import javax.inject.Inject
 import kotlin.random.Random
-import timber.log.Timber
 
 /**
  * Base class for maintaining global application state.

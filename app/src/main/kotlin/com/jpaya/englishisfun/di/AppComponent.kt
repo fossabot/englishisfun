@@ -1,7 +1,6 @@
 package com.jpaya.englishisfun.di
 
 import com.jpaya.englishisfun.SampleApp
-import com.jpaya.englishisfun.di.AppModule
 import com.jpaya.core.di.CoreComponent
 import com.jpaya.core.di.scopes.AppScope
 import dagger.Component

@@ -41,7 +41,6 @@ class AbbreviationsListFragment :
         super.onViewCreated(view, savedInstanceState)
         observe(viewModel.state, ::onViewStateChange)
         observe(viewModel.data, ::onViewDataChange)
-        observe(viewModel.event, ::onViewEvent)
     }
 
     /**
@@ -96,11 +95,4 @@ class AbbreviationsListFragment :
                 viewAdapter.submitState(AbbreviationsListAdapterState.NoMore)
         }
     }
-
-    /**
-     * Observer view event change on [AbbreviationsListViewModel].
-     *
-     * @param viewEvent Event on abbreviations list.
-     */
-    private fun onViewEvent(viewEvent: AbbreviationsListViewEvent) {}
 }

@@ -3,7 +3,6 @@ package com.jpaya.core.database.characterfavorite
 import androidx.annotation.VisibleForTesting
 import androidx.annotation.VisibleForTesting.PRIVATE
 import androidx.lifecycle.LiveData
-import com.jpaya.core.database.characterfavorite.CharacterFavoriteDao
 import javax.inject.Inject
 
 /**

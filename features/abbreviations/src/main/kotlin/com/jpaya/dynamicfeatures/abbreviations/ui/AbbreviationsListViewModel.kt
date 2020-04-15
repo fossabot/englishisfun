@@ -27,7 +27,6 @@ class AbbreviationsListViewModel
         it.networkState
     }
 
-    val event = SingleLiveData<AbbreviationsListViewEvent>()
     val data = LivePagedListBuilder(dataSourceFactory, PAGE_MAX_ELEMENTS).build()
     val state = Transformations.map(networkState) {
         when (it) {
@@ -61,23 +60,7 @@ class AbbreviationsListViewModel
     /**
      * Refresh abbreviations fetch them again and update the list.
      */
-    fun refreshLoadedAbbreviationsList() {
-        dataSourceFactory.refresh()
-    }
-
-    /**
-     * Retry last fetch operation to add abbreviations into list.
-     */
-    fun retryAddAbbreviationsList() {
-        dataSourceFactory.retry()
-    }
-
-    /**
-     * Send interaction event for open abbreviation detail view from selected abbreviation.
-     *
-     * @param abbreviationId Abbreviation identifier.
-     */
-    fun openAbbreviationDetail(abbreviationId: Long) {
-        event.postValue(AbbreviationsListViewEvent.OpenAbbreviationDetail(abbreviationId))
-    }
+//    fun refreshLoadedAbbreviationsList() {
+//        dataSourceFactory.refresh()
+//    }
 }

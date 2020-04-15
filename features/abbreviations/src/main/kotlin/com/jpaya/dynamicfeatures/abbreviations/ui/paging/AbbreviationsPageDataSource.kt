@@ -4,10 +4,8 @@ import androidx.annotation.VisibleForTesting
 import androidx.annotation.VisibleForTesting.PRIVATE
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.PageKeyedDataSource
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
+import com.google.firebase.firestore.FirebaseFirestore
 import com.jpaya.core.network.NetworkState
-import com.jpaya.core.network.repositiories.MarvelRepository
 import com.jpaya.dynamicfeatures.abbreviations.ui.model.AbbreviationItem
 import com.jpaya.dynamicfeatures.abbreviations.ui.model.AbbreviationItemMapper
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -26,7 +24,7 @@ const val PAGE_MAX_ELEMENTS = 50
  */
 open class AbbreviationsPageDataSource @Inject constructor(
     @VisibleForTesting(otherwise = PRIVATE)
-    val repository: MarvelRepository, // TODO Inyectar FirebaseFirestore, crear FirebaseModule
+    val firestore: FirebaseFirestore,
     @VisibleForTesting(otherwise = PRIVATE)
     val scope: CoroutineScope,
     @VisibleForTesting(otherwise = PRIVATE)
@@ -34,6 +32,7 @@ open class AbbreviationsPageDataSource @Inject constructor(
 ) : PageKeyedDataSource<Int, AbbreviationItem>() {
 
     val networkState = MutableLiveData<NetworkState>()
+
     @VisibleForTesting(otherwise = PRIVATE)
     var retry: (() -> Unit)? = null
 
@@ -55,7 +54,7 @@ open class AbbreviationsPageDataSource @Inject constructor(
             }
             networkState.postValue(NetworkState.Error())
         }) {
-            val list = Firebase.firestore
+            val list = firestore
                 .collection("abbreviation")
                 .document("list")
                 .get()
@@ -63,7 +62,9 @@ open class AbbreviationsPageDataSource @Inject constructor(
 
             val result = mapper.map(list["abbreviations"] as MutableList<HashMap<String, String>>)
             callback.onResult(result, null, null)
-            networkState.postValue(NetworkState.Success(isAdditional = false, isEmptyResponse = result.isEmpty()))
+            networkState.postValue(
+                NetworkState.Success(isAdditional = false, isEmptyResponse = result.isEmpty())
+            )
         }
     }
 
@@ -75,10 +76,7 @@ open class AbbreviationsPageDataSource @Inject constructor(
      * @param callback Callback that receives loaded data.
      * @see PageKeyedDataSource.loadAfter
      */
-    override fun loadAfter(
-        params: LoadParams<Int>,
-        callback: LoadCallback<Int, AbbreviationItem>
-    ) {
+    override fun loadAfter(params: LoadParams<Int>, callback: LoadCallback<Int, AbbreviationItem>) {
         // Ignored, since we load all list at once
     }
 

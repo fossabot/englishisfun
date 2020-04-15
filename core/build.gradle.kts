@@ -46,6 +46,7 @@ dependencies {
     implementation(Dependencies.LOGGING)
     implementation(Dependencies.MOSHI)
     implementation(Dependencies.MOSHI_KTX)
+    implementation(Dependencies.FIREBASE_FIRESTORE)
 
     kapt(AnnotationProcessorsDependencies.DATABINDING)
     kapt(AnnotationProcessorsDependencies.ROOM)

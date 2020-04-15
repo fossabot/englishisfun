@@ -3,9 +3,9 @@ package com.jpaya.dynamicfeatures.abbreviations.ui.di
 import androidx.annotation.VisibleForTesting
 import androidx.annotation.VisibleForTesting.PRIVATE
 import androidx.lifecycle.viewModelScope
+import com.google.firebase.firestore.FirebaseFirestore
 import com.jpaya.commons.ui.extensions.viewModel
 import com.jpaya.core.di.scopes.FeatureScope
-import com.jpaya.core.network.repositiories.MarvelRepository
 import com.jpaya.dynamicfeatures.abbreviations.ui.AbbreviationsListFragment
 import com.jpaya.dynamicfeatures.abbreviations.ui.AbbreviationsListViewModel
 import com.jpaya.dynamicfeatures.abbreviations.ui.adapter.AbbreviationsListAdapter
@@ -50,10 +50,10 @@ class AbbreviationsModule(
     @Provides
     fun providesAbbreviationsPageDataSource(
         viewModel: AbbreviationsListViewModel,
-        repository: MarvelRepository,
+        firestore: FirebaseFirestore,
         mapper: AbbreviationItemMapper
     ) = AbbreviationsPageDataSource(
-        repository = repository,
+        firestore = firestore,
         scope = viewModel.viewModelScope,
         mapper = mapper
     )

@@ -7,8 +7,7 @@ import com.jpaya.commons.ui.base.BaseViewState
  *
  * @see BaseViewState
  */
-sealed class AbbreviationsListViewState :
-    BaseViewState {
+sealed class AbbreviationsListViewState : BaseViewState {
 
     /**
      * Refreshing abbreviations list.

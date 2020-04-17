@@ -68,9 +68,9 @@ android {
 
     flavorDimensions(BuildProductDimensions.ENVIRONMENT)
     productFlavors {
-        ProductFlavorDevelop.appCreate(this)
-        ProductFlavorQA.appCreate(this)
-        ProductFlavorProduction.appCreate(this)
+        ProductFlavorDevelop.app(this)
+        ProductFlavorQA.app(this)
+        ProductFlavorProduction.app(this)
     }
 
     dynamicFeatures = mutableSetOf(

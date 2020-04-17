@@ -51,9 +51,9 @@ android {
 
     flavorDimensions(BuildProductDimensions.ENVIRONMENT)
     productFlavors {
-        ProductFlavorDevelop.libraryCreate(this)
-        ProductFlavorQA.libraryCreate(this)
-        ProductFlavorProduction.libraryCreate(this)
+        ProductFlavorDevelop.library(this)
+        ProductFlavorQA.library(this)
+        ProductFlavorProduction.library(this)
     }
 
     sourceSets {

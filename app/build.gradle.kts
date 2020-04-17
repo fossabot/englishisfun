@@ -76,7 +76,8 @@ android {
     dynamicFeatures = mutableSetOf(
         BuildModules.Features.HOME,
         BuildModules.Features.CHARACTERS_LIST,
-        BuildModules.Features.CHARACTERS_FAVORITES
+        BuildModules.Features.CHARACTERS_FAVORITES,
+        BuildModules.Features.ABBREVIATIONS
     )
 
     dataBinding {
@@ -139,7 +140,9 @@ dependencies {
     implementation(Dependencies.LOGGING)
     implementation(Dependencies.PLAY_CORE)
     implementation(Dependencies.DAGGER)
-    implementation("com.google.firebase:firebase-analytics:17.3.0")
+    implementation(Dependencies.FIREBASE_ANALYTICS)
+    implementation(Dependencies.FIREBASE_FIRESTORE)
+    implementation(Dependencies.FIREBASE_AUTH)
 
     debugImplementation(DebugDependencies.LEAKCANARY)
 

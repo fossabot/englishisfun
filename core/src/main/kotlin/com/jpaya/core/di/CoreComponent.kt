@@ -1,11 +1,9 @@
 package com.jpaya.core.di
 
 import android.content.Context
+import com.google.firebase.firestore.FirebaseFirestore
 import com.jpaya.core.database.characterfavorite.CharacterFavoriteDao
-import com.jpaya.core.di.modules.ContextModule
-import com.jpaya.core.di.modules.DatabaseModule
-import com.jpaya.core.di.modules.NetworkModule
-import com.jpaya.core.di.modules.UtilsModule
+import com.jpaya.core.di.modules.*
 import com.jpaya.core.network.repositiories.MarvelRepository
 import com.jpaya.core.network.services.MarvelService
 import com.jpaya.core.utils.ThemeUtils
@@ -22,7 +20,8 @@ import javax.inject.Singleton
     ContextModule::class,
     NetworkModule::class,
     DatabaseModule::class,
-    UtilsModule::class
+    UtilsModule::class,
+    FirebaseModule::class
 ])
 interface CoreComponent {
 
@@ -60,4 +59,11 @@ interface CoreComponent {
      * @return ThemeUtils
      */
     fun themeUtils(): ThemeUtils
+
+    /**
+     * Provide dependency graph FirebaseFirestore
+     *
+     * @return FirebaseFirestore
+     */
+    fun firebaseFirestore(): FirebaseFirestore
 }

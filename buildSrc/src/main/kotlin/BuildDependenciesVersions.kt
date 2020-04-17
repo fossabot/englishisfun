@@ -25,6 +25,9 @@ object BuildDependenciesVersions {
     const val LEAKCANARY = "2.0"
     const val DATABINDING = "3.1.4"
     const val AUTO_SERVICE = "1.0-rc4"
+    const val FIREBASE_ANALYTICS = "17.3.0"
+    const val FIREBASE_FIRESTORE = "21.4.2"
+    const val FIREBASE_AUTH = "19.3.0"
 
     // Tests
     const val TEST = "1.2.0"

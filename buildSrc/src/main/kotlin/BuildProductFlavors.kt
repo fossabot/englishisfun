@@ -9,8 +9,13 @@ interface BuildProductFlavor {
     fun library(container: NamedDomainObjectContainer<ProductFlavor>): ProductFlavor
 }
 
-object ProductFlavorDevelop : BuildProductFlavor {
-    override val name = "dev"
+/**
+ * Base product flavor class that allows to alter the applicationId and the versionName so as
+ * being able to create different versions of the same codebase.
+ *
+ * @param name ApplicationId and versionName suffix
+ */
+open class ProductFlavorBase(override val name: String) : BuildProductFlavor {
 
     override fun app(container: NamedDomainObjectContainer<ProductFlavor>): ProductFlavor =
         container.create(name) {
@@ -26,23 +31,19 @@ object ProductFlavorDevelop : BuildProductFlavor {
         }
 }
 
-object ProductFlavorQA : BuildProductFlavor {
-    override val name = "qa"
+/**
+ * Develop product flavor implementation using "dev" as suffix.
+ */
+object ProductFlavorDevelop : ProductFlavorBase("dev")
 
-    override fun app(container: NamedDomainObjectContainer<ProductFlavor>): ProductFlavor =
-        container.create(name) {
-            applicationIdSuffix = ".$name"
-            versionNameSuffix = "-$name"
-            dimension = BuildProductDimensions.ENVIRONMENT
-        }
+/**
+ * QA product flavor implementation using "qa" as suffix.
+ */
+object ProductFlavorQA : ProductFlavorBase("qa")
 
-    override fun library(container: NamedDomainObjectContainer<ProductFlavor>): ProductFlavor =
-        container.create(name) {
-            versionNameSuffix = "-$name"
-            dimension = BuildProductDimensions.ENVIRONMENT
-        }
-}
-
+/**
+ * Production product flavor implementation.
+ */
 object ProductFlavorProduction : BuildProductFlavor {
     override val name = "prod"
 

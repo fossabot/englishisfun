@@ -50,21 +50,18 @@ class CharactersListAdapter @Inject constructor(
      *
      * @param parent The ViewGroup into which the new View will be added after it is bound to
      * an adapter position.
-     * @param inflater Instantiates a layout XML file into its corresponding View objects.
      * @param viewType The view type of the new View.
      * @return A new ViewHolder that holds a View of the given view type.
      * @see BaseListAdapter.onCreateViewHolder
      */
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        inflater: LayoutInflater,
-        viewType: Int
-    ): RecyclerView.ViewHolder =
-        when (ItemView.valueOf(viewType)) {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
+        return when (ItemView.valueOf(viewType)) {
             ItemView.CHARACTER -> CharacterViewHolder(inflater)
             ItemView.LOADING -> LoadingViewHolder(inflater)
             else -> ErrorViewHolder(inflater)
         }
+    }
 
     /**
      * Called by RecyclerView to display the data at the specified position.

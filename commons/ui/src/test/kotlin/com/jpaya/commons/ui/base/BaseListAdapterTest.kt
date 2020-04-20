@@ -1,6 +1,5 @@
 package com.jpaya.commons.ui.base
 
-import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.recyclerview.widget.RecyclerView
@@ -58,7 +57,7 @@ class BaseListAdapterTest : TestRobolectric() {
         doReturn(context).whenever(parent).context
         adapter.onCreateViewHolder(parent, viewType)
 
-        verify(adapter).onCreateViewHolder(same(parent), any(), same(viewType))
+        verify(adapter).onCreateViewHolder(same(parent), same(viewType))
     }
 
     @Test
@@ -86,16 +85,10 @@ class BaseListAdapterTest : TestRobolectric() {
     }
 
     inner class TestBaseListAdapter : BaseListAdapter<String>(
-        itemsSame = itemsSame,
-        contentsSame = contentsSame
+        itemsSame = itemsSame, contentsSame = contentsSame
     ) {
-        override fun onCreateViewHolder(
-            parent: ViewGroup,
-            inflater: LayoutInflater,
-            viewType: Int
-        ): RecyclerView.ViewHolder {
-            return viewHolder
-        }
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
+            viewHolder
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {}
     }

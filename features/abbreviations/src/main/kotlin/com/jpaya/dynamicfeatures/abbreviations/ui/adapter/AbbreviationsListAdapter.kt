@@ -6,7 +6,7 @@ import androidx.annotation.VisibleForTesting
 import androidx.annotation.VisibleForTesting.PRIVATE
 import androidx.recyclerview.widget.RecyclerView
 import com.jpaya.commons.ui.base.BaseListAdapter
-import com.jpaya.commons.ui.base.BasePagedListAdapter
+import com.jpaya.commons.ui.base.BaseViewHolderListAdapter
 import com.jpaya.dynamicfeatures.abbreviations.ui.AbbreviationsListViewModel
 import com.jpaya.dynamicfeatures.abbreviations.ui.adapter.holders.AbbreviationViewHolder
 import com.jpaya.dynamicfeatures.abbreviations.ui.model.AbbreviationItem
@@ -21,7 +21,7 @@ import javax.inject.Inject
 class AbbreviationsListAdapter @Inject constructor(
     @VisibleForTesting(otherwise = PRIVATE)
     val viewModel: AbbreviationsListViewModel
-) : BasePagedListAdapter<AbbreviationItem>(
+) : BaseViewHolderListAdapter<AbbreviationItem, AbbreviationViewHolder>(
     itemsSame = { old, new -> old.id == new.id },
     contentsSame = { old, new -> old == new }
 ) {
@@ -43,7 +43,7 @@ class AbbreviationsListAdapter @Inject constructor(
         parent: ViewGroup,
         inflater: LayoutInflater,
         viewType: Int
-    ): RecyclerView.ViewHolder = AbbreviationViewHolder(inflater)
+    ): AbbreviationViewHolder = AbbreviationViewHolder(inflater)
 
     /**
      * Called by RecyclerView to display the data at the specified position.
@@ -51,13 +51,11 @@ class AbbreviationsListAdapter @Inject constructor(
      * @param holder The ViewHolder which should be updated to represent the contents of the
      *        item at the given position in the data set.
      * @param position The position of the item within the adapter's data set.
-     * @see BaseListAdapter.onBindViewHolder
+     * @see BaseViewHolderListAdapter.onBindViewHolder
      */
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: AbbreviationViewHolder, position: Int) {
         getItem(position)?.let {
-            if (holder is AbbreviationViewHolder) {
-                holder.bind(viewModel, it)
-            }
+            holder.bind(viewModel, it)
         }
     }
 
@@ -66,9 +64,9 @@ class AbbreviationsListAdapter @Inject constructor(
      *
      * @param position Adapter position to query.
      * @return The stable ID of the item at position.
-     * @see BasePagedListAdapter.getItemId
+     * @see BaseViewHolderListAdapter.getItem
      */
-    override fun getItemId(position: Int) = getItem(position)?.id ?: -1L
+    override fun getItemId(position: Int) = getItem(position).id
 
     /**
      * Update current adapter state with the new one, applying visual changes.

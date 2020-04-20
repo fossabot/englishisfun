@@ -72,7 +72,7 @@ class AbbreviationsListAdapter @Inject constructor(
     fun submitState(newState: AbbreviationsListAdapterState) {
         val oldState = state
         state = newState
-        if (newState.hasExtraRow && oldState != newState) {
+        if (oldState != newState) {
             notifyItemChanged(itemCount - 1)
         }
     }

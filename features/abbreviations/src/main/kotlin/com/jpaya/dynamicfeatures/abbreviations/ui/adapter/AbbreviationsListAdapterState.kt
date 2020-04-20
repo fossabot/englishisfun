@@ -7,29 +7,27 @@ import com.jpaya.commons.ui.base.BaseViewState
  *
  * @see BaseViewState
  */
-sealed class AbbreviationsListAdapterState(
-    val hasExtraRow: Boolean
-) {
+sealed class AbbreviationsListAdapterState {
 
     /**
      * Listed the added abbreviations into list.
      */
-    object Added : AbbreviationsListAdapterState(hasExtraRow = true)
+    object Added : AbbreviationsListAdapterState()
 
     /**
      * Loading for new abbreviations to add into list.
      */
-    object AddLoading : AbbreviationsListAdapterState(hasExtraRow = true)
+    object AddLoading : AbbreviationsListAdapterState()
 
     /**
      * Error on add new abbreviations into list.
      */
-    object AddError : AbbreviationsListAdapterState(hasExtraRow = true)
+    object AddError : AbbreviationsListAdapterState()
 
     /**
      * No more abbreviations to add into list.
      */
-    object NoMore : AbbreviationsListAdapterState(hasExtraRow = false)
+    object NoMore : AbbreviationsListAdapterState()
 
     // ============================================================================================
     //  Public helpers methods

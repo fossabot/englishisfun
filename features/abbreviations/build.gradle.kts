@@ -12,6 +12,5 @@ dependencies {
     implementation(Dependencies.PAGING)
     implementation(Dependencies.FIREBASE_ANALYTICS)
     implementation(Dependencies.FIREBASE_FIRESTORE)
-    /* coroutines support for firebase operations */
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.1.1")
+    implementation(Dependencies.COROUTINES_PLAY_SERVICES)
 }

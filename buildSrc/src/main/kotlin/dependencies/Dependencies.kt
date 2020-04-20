@@ -34,4 +34,5 @@ object Dependencies {
     const val FIREBASE_ANALYTICS = "com.google.firebase:firebase-analytics-ktx:${BuildDependenciesVersions.FIREBASE_ANALYTICS}"
     const val FIREBASE_FIRESTORE = "com.google.firebase:firebase-firestore-ktx:${BuildDependenciesVersions.FIREBASE_FIRESTORE}"
     const val FIREBASE_AUTH = "com.google.firebase:firebase-auth:${BuildDependenciesVersions.FIREBASE_AUTH}"
+    const val COROUTINES_PLAY_SERVICES = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:${BuildDependenciesVersions.COROUTINES_PLAY_SERVICES}"
 }

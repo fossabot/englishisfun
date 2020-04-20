@@ -28,6 +28,7 @@ object BuildDependenciesVersions {
     const val FIREBASE_ANALYTICS = "17.3.0"
     const val FIREBASE_FIRESTORE = "21.4.2"
     const val FIREBASE_AUTH = "19.3.0"
+    const val COROUTINES_PLAY_SERVICES = "1.1.1"
 
     // Tests
     const val TEST = "1.2.0"

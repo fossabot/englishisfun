@@ -10,8 +10,8 @@ import com.jpaya.core.database.characterfavorite.CharacterFavoriteRepository
 import com.jpaya.core.network.repositiories.MarvelRepository
 import com.jpaya.dynamicfeatures.characterslist.ui.detail.model.CharacterDetail
 import com.jpaya.dynamicfeatures.characterslist.ui.detail.model.CharacterDetailMapper
-import javax.inject.Inject
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 /**
  * View model responsible for preparing and managing the data for [CharacterDetailFragment].
@@ -47,17 +47,13 @@ class CharacterDetailViewModel @Inject constructor(
     fun loadCharacterDetail(characterId: Long) {
         _state.postValue(CharacterDetailViewState.Loading)
         viewModelScope.launch {
-            try {
-                val result = marvelRepository.getCharacter(characterId)
-                _data.postValue(characterDetailMapper.map(result))
+            val result = marvelRepository.getCharacter(characterId)
+            _data.postValue(characterDetailMapper.map(result))
 
-                characterFavoriteRepository.getCharacterFavorite(characterId)?.let {
-                    _state.postValue(CharacterDetailViewState.AlreadyAddedToFavorite)
-                } ?: run {
-                    _state.postValue(CharacterDetailViewState.AddToFavorite)
-                }
-            } catch (e: Exception) {
-                _state.postValue(CharacterDetailViewState.Error)
+            characterFavoriteRepository.getCharacterFavorite(characterId)?.let {
+                _state.postValue(CharacterDetailViewState.AlreadyAddedToFavorite)
+            } ?: run {
+                _state.postValue(CharacterDetailViewState.AddToFavorite)
             }
         }
     }

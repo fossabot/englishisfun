@@ -7,7 +7,7 @@ package com.jpaya.core.firebase
  * - Document names
  * - Field names
  */
-object Abbreviation {
+object Realtime {
     const val COLLECTION_NAME = "abbreviation"
     const val DOCUMENT_NAME = "list"
     const val LIST_FIELD = "abbreviations"

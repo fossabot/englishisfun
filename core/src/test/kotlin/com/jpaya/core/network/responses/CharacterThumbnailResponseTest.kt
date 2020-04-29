@@ -1,8 +1,7 @@
 package com.jpaya.core.network.responses
 
-import com.jpaya.core.network.responses.CharacterThumbnailResponse
-import org.junit.Assert
-import org.junit.Test
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Test
 
 class CharacterThumbnailResponseTest {
 
@@ -17,7 +16,7 @@ class CharacterThumbnailResponseTest {
                 extension = extension
             )
 
-        Assert.assertEquals(path, characterThumbnailResponse.path)
-        Assert.assertEquals(extension, characterThumbnailResponse.extension)
+        assertEquals(path, characterThumbnailResponse.path)
+        assertEquals(extension, characterThumbnailResponse.extension)
     }
 }

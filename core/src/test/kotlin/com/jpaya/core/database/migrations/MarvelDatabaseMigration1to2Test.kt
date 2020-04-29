@@ -3,9 +3,9 @@ package com.jpaya.core.database.migrations
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.nhaarman.mockitokotlin2.never
 import com.nhaarman.mockitokotlin2.verify
-import org.junit.Assert.assertEquals
-import org.junit.Before
-import org.junit.Test
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 import org.mockito.Mock
 import org.mockito.MockitoAnnotations
 
@@ -15,7 +15,7 @@ class MarvelDatabaseMigration1to2Test {
     lateinit var supportSQLiteDatabase: SupportSQLiteDatabase
     private val migration = MIGRATION_1_2
 
-    @Before
+    @BeforeEach
     fun setUp() {
         MockitoAnnotations.initMocks(this)
     }

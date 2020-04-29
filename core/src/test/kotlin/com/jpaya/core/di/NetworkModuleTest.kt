@@ -1,25 +1,20 @@
 package com.jpaya.core.di
 
-import com.nhaarman.mockitokotlin2.any
-import com.nhaarman.mockitokotlin2.argumentCaptor
-import com.nhaarman.mockitokotlin2.doReturn
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.verify
-import com.nhaarman.mockitokotlin2.whenever
 import com.jpaya.core.BuildConfig
 import com.jpaya.core.di.modules.NetworkModule
 import com.jpaya.core.network.services.MarvelService
+import com.nhaarman.mockitokotlin2.*
 import okhttp3.logging.HttpLoggingInterceptor
-import org.junit.Assert.assertEquals
-import org.junit.Before
-import org.junit.Test
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 import retrofit2.Retrofit
 
 class NetworkModuleTest {
 
     private lateinit var networkModule: NetworkModule
 
-    @Before
+    @BeforeEach
     fun setUp() {
         networkModule = NetworkModule()
     }

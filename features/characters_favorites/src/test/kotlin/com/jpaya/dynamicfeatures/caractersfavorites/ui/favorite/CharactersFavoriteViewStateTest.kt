@@ -1,26 +1,27 @@
 package com.jpaya.dynamicfeatures.caractersfavorites.ui.favorite
 
 import com.jpaya.dynamicfeatures.charactersfavorites.ui.favorite.CharactersFavoriteViewState
-import org.junit.Assert
-import org.junit.Test
+import org.junit.jupiter.api.Assertions.assertFalse
+import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.Test
 
 class CharactersFavoriteViewStateTest {
 
-    lateinit var state: CharactersFavoriteViewState
+    private lateinit var state: CharactersFavoriteViewState
 
     @Test
     fun setStateAsEmpty_ShouldBeSettled() {
         state = CharactersFavoriteViewState.Empty
 
-        Assert.assertTrue(state.isEmpty())
-        Assert.assertFalse(state.isListed())
+        assertTrue(state.isEmpty())
+        assertFalse(state.isListed())
     }
 
     @Test
     fun setStateAsListed_ShouldBeSettled() {
         state = CharactersFavoriteViewState.Listed
 
-        Assert.assertTrue(state.isListed())
-        Assert.assertFalse(state.isEmpty())
+        assertTrue(state.isListed())
+        assertFalse(state.isEmpty())
     }
 }

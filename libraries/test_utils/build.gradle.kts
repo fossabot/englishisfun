@@ -1,6 +1,7 @@
+
+import dependencies.AnnotationProcessorsDependencies
 import dependencies.Dependencies
 import dependencies.TestDependencies
-import dependencies.AnnotationProcessorsDependencies
 import extensions.implementation
 
 plugins {
@@ -11,6 +12,7 @@ dependencies {
     implementation(Dependencies.PAGING)
     implementation(Dependencies.NAVIGATION_UI)
 
+    implementation(TestDependencies.JUNIT)
     implementation(TestDependencies.MOCKITO)
     implementation(TestDependencies.ASSERTJ)
     implementation(TestDependencies.ROBOELECTRIC)

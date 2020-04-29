@@ -1,31 +1,23 @@
 package com.jpaya.dynamicfeatures.characterslist.ui.list
 
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import com.jpaya.core.network.NetworkState
 import com.jpaya.dynamicfeatures.characterslist.ui.list.paging.CharactersPageDataSource
 import com.jpaya.dynamicfeatures.characterslist.ui.list.paging.CharactersPageDataSourceFactory
-import com.jpaya.libraries.testutils.rules.CoroutineRule
+import com.jpaya.libraries.testutils.rules.InstantExecutorExtension
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import io.mockk.mockk
 import io.mockk.verify
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import org.junit.Assert.assertEquals
-import org.junit.Before
-import org.junit.Rule
-import org.junit.Test
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.extension.ExtendWith
 
+@ExtendWith(InstantExecutorExtension::class)
 class CharactersListViewModelTest {
-
-    @ExperimentalCoroutinesApi
-    @get:Rule
-    var coroutinesTestRule = CoroutineRule()
-
-    @get:Rule
-    var instantTaskExecutorRule = InstantTaskExecutorRule()
 
     @MockK(relaxed = true)
     lateinit var dataSourceFactory: CharactersPageDataSourceFactory
@@ -33,9 +25,9 @@ class CharactersListViewModelTest {
     lateinit var stateObserver: Observer<CharactersListViewState>
     @MockK(relaxed = true)
     lateinit var eventObserver: Observer<CharactersListViewEvent>
-    lateinit var viewModel: CharactersListViewModel
+    private lateinit var viewModel: CharactersListViewModel
 
-    @Before
+    @BeforeEach
     fun setUp() {
         MockKAnnotations.init(this)
     }

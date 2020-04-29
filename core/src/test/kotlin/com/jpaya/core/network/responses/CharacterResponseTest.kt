@@ -1,10 +1,8 @@
 package com.jpaya.core.network.responses
 
-import com.jpaya.core.network.responses.CharacterResponse
-import com.jpaya.core.network.responses.CharacterThumbnailResponse
 import com.nhaarman.mockitokotlin2.mock
-import org.junit.Assert
-import org.junit.Test
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Test
 
 class CharacterResponseTest {
 
@@ -23,9 +21,9 @@ class CharacterResponseTest {
                 thumbnail = thumbnail
             )
 
-        Assert.assertEquals(id, characterResponse.id)
-        Assert.assertEquals(name, characterResponse.name)
-        Assert.assertEquals(description, characterResponse.description)
-        Assert.assertEquals(thumbnail, characterResponse.thumbnail)
+        assertEquals(id, characterResponse.id)
+        assertEquals(name, characterResponse.name)
+        assertEquals(description, characterResponse.description)
+        assertEquals(thumbnail, characterResponse.thumbnail)
     }
 }

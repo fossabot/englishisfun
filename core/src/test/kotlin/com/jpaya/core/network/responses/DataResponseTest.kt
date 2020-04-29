@@ -1,9 +1,8 @@
 package com.jpaya.core.network.responses
 
-import com.jpaya.core.network.responses.DataResponse
 import com.nhaarman.mockitokotlin2.mock
-import org.junit.Assert
-import org.junit.Test
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Test
 
 class DataResponseTest {
 
@@ -23,10 +22,10 @@ class DataResponseTest {
             results = results
         )
 
-        Assert.assertEquals(offset, dataResponse.offset)
-        Assert.assertEquals(limit, dataResponse.limit)
-        Assert.assertEquals(total, dataResponse.total)
-        Assert.assertEquals(count, dataResponse.count)
-        Assert.assertEquals(results, dataResponse.results)
+        assertEquals(offset, dataResponse.offset)
+        assertEquals(limit, dataResponse.limit)
+        assertEquals(total, dataResponse.total)
+        assertEquals(count, dataResponse.count)
+        assertEquals(results, dataResponse.results)
     }
 }

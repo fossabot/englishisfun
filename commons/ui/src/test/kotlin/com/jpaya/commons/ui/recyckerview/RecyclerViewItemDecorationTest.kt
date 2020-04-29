@@ -9,13 +9,13 @@ import com.jpaya.commons.ui.recyclerview.RecyclerViewItemDecoration
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
-import org.junit.Assert.assertEquals
-import org.junit.Before
-import org.junit.Test
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 
 class RecyclerViewItemDecorationTest {
 
-    lateinit var recyclerViewItemDecoration: RecyclerViewItemDecoration
+    private lateinit var recyclerViewItemDecoration: RecyclerViewItemDecoration
 
     @MockK(relaxed = true)
     lateinit var viewDecorate: View
@@ -28,7 +28,7 @@ class RecyclerViewItemDecorationTest {
     @MockK(relaxed = true)
     lateinit var linearLayoutManager: LinearLayoutManager
 
-    @Before
+    @BeforeEach
     fun setUp() {
         MockKAnnotations.init(this)
     }

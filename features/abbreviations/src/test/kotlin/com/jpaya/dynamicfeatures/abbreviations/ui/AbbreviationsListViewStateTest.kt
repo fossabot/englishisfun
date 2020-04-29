@@ -1,121 +1,122 @@
 package com.jpaya.dynamicfeatures.abbreviations.ui
 
-import org.junit.Assert
-import org.junit.Test
+import org.junit.jupiter.api.Assertions.assertFalse
+import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.Test
 
 class AbbreviationsListViewStateTest {
 
-    lateinit var state: AbbreviationsListViewState
+    private lateinit var state: AbbreviationsListViewState
 
     @Test
     fun setStateAsRefreshing_ShouldBeSettled() {
         state = AbbreviationsListViewState.Refreshing
 
-        Assert.assertTrue(state.isRefreshing())
-        Assert.assertFalse(state.isLoaded())
-        Assert.assertFalse(state.isLoading())
-        Assert.assertFalse(state.isAddLoading())
-        Assert.assertFalse(state.isEmpty())
-        Assert.assertFalse(state.isError())
-        Assert.assertFalse(state.isAddError())
-        Assert.assertFalse(state.isNoMoreElements())
+        assertTrue(state.isRefreshing())
+        assertFalse(state.isLoaded())
+        assertFalse(state.isLoading())
+        assertFalse(state.isAddLoading())
+        assertFalse(state.isEmpty())
+        assertFalse(state.isError())
+        assertFalse(state.isAddError())
+        assertFalse(state.isNoMoreElements())
     }
 
     @Test
     fun setStateAsLoaded_ShouldBeSettled() {
         state = AbbreviationsListViewState.Loaded
 
-        Assert.assertTrue(state.isLoaded())
-        Assert.assertFalse(state.isRefreshing())
-        Assert.assertFalse(state.isLoading())
-        Assert.assertFalse(state.isAddLoading())
-        Assert.assertFalse(state.isEmpty())
-        Assert.assertFalse(state.isError())
-        Assert.assertFalse(state.isAddError())
-        Assert.assertFalse(state.isNoMoreElements())
+        assertTrue(state.isLoaded())
+        assertFalse(state.isRefreshing())
+        assertFalse(state.isLoading())
+        assertFalse(state.isAddLoading())
+        assertFalse(state.isEmpty())
+        assertFalse(state.isError())
+        assertFalse(state.isAddError())
+        assertFalse(state.isNoMoreElements())
     }
 
     @Test
     fun setStateAsLoading_ShouldBeSettled() {
         state = AbbreviationsListViewState.Loading
 
-        Assert.assertTrue(state.isLoading())
-        Assert.assertFalse(state.isRefreshing())
-        Assert.assertFalse(state.isLoaded())
-        Assert.assertFalse(state.isAddLoading())
-        Assert.assertFalse(state.isEmpty())
-        Assert.assertFalse(state.isError())
-        Assert.assertFalse(state.isAddError())
-        Assert.assertFalse(state.isNoMoreElements())
+        assertTrue(state.isLoading())
+        assertFalse(state.isRefreshing())
+        assertFalse(state.isLoaded())
+        assertFalse(state.isAddLoading())
+        assertFalse(state.isEmpty())
+        assertFalse(state.isError())
+        assertFalse(state.isAddError())
+        assertFalse(state.isNoMoreElements())
     }
 
     @Test
     fun setStateAsAddLoading_ShouldBeSettled() {
         state = AbbreviationsListViewState.AddLoading
 
-        Assert.assertTrue(state.isAddLoading())
-        Assert.assertFalse(state.isRefreshing())
-        Assert.assertFalse(state.isLoaded())
-        Assert.assertFalse(state.isLoading())
-        Assert.assertFalse(state.isEmpty())
-        Assert.assertFalse(state.isError())
-        Assert.assertFalse(state.isAddError())
-        Assert.assertFalse(state.isNoMoreElements())
+        assertTrue(state.isAddLoading())
+        assertFalse(state.isRefreshing())
+        assertFalse(state.isLoaded())
+        assertFalse(state.isLoading())
+        assertFalse(state.isEmpty())
+        assertFalse(state.isError())
+        assertFalse(state.isAddError())
+        assertFalse(state.isNoMoreElements())
     }
 
     @Test
     fun setStateAsEmpty_ShouldBeSettled() {
         state = AbbreviationsListViewState.Empty
 
-        Assert.assertTrue(state.isEmpty())
-        Assert.assertFalse(state.isRefreshing())
-        Assert.assertFalse(state.isLoaded())
-        Assert.assertFalse(state.isLoading())
-        Assert.assertFalse(state.isAddLoading())
-        Assert.assertFalse(state.isError())
-        Assert.assertFalse(state.isAddError())
-        Assert.assertFalse(state.isNoMoreElements())
+        assertTrue(state.isEmpty())
+        assertFalse(state.isRefreshing())
+        assertFalse(state.isLoaded())
+        assertFalse(state.isLoading())
+        assertFalse(state.isAddLoading())
+        assertFalse(state.isError())
+        assertFalse(state.isAddError())
+        assertFalse(state.isNoMoreElements())
     }
 
     @Test
     fun setStateAsError_ShouldBeSettled() {
         state = AbbreviationsListViewState.Error
 
-        Assert.assertTrue(state.isError())
-        Assert.assertFalse(state.isRefreshing())
-        Assert.assertFalse(state.isLoaded())
-        Assert.assertFalse(state.isLoading())
-        Assert.assertFalse(state.isAddLoading())
-        Assert.assertFalse(state.isEmpty())
-        Assert.assertFalse(state.isAddError())
-        Assert.assertFalse(state.isNoMoreElements())
+        assertTrue(state.isError())
+        assertFalse(state.isRefreshing())
+        assertFalse(state.isLoaded())
+        assertFalse(state.isLoading())
+        assertFalse(state.isAddLoading())
+        assertFalse(state.isEmpty())
+        assertFalse(state.isAddError())
+        assertFalse(state.isNoMoreElements())
     }
 
     @Test
     fun setStateAsAddError_ShouldBeSettled() {
         state = AbbreviationsListViewState.AddError
 
-        Assert.assertTrue(state.isAddError())
-        Assert.assertFalse(state.isRefreshing())
-        Assert.assertFalse(state.isLoaded())
-        Assert.assertFalse(state.isLoading())
-        Assert.assertFalse(state.isAddLoading())
-        Assert.assertFalse(state.isEmpty())
-        Assert.assertFalse(state.isError())
-        Assert.assertFalse(state.isNoMoreElements())
+        assertTrue(state.isAddError())
+        assertFalse(state.isRefreshing())
+        assertFalse(state.isLoaded())
+        assertFalse(state.isLoading())
+        assertFalse(state.isAddLoading())
+        assertFalse(state.isEmpty())
+        assertFalse(state.isError())
+        assertFalse(state.isNoMoreElements())
     }
 
     @Test
     fun setStateAsNoMoreElements_ShouldBeSettled() {
         state = AbbreviationsListViewState.NoMoreElements
 
-        Assert.assertTrue(state.isNoMoreElements())
-        Assert.assertFalse(state.isRefreshing())
-        Assert.assertFalse(state.isLoaded())
-        Assert.assertFalse(state.isLoading())
-        Assert.assertFalse(state.isAddLoading())
-        Assert.assertFalse(state.isEmpty())
-        Assert.assertFalse(state.isError())
-        Assert.assertFalse(state.isAddError())
+        assertTrue(state.isNoMoreElements())
+        assertFalse(state.isRefreshing())
+        assertFalse(state.isLoaded())
+        assertFalse(state.isLoading())
+        assertFalse(state.isAddLoading())
+        assertFalse(state.isEmpty())
+        assertFalse(state.isError())
+        assertFalse(state.isAddError())
     }
 }

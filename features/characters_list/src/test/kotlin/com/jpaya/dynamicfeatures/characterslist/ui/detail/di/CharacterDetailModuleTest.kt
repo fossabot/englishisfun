@@ -7,16 +7,11 @@ import com.jpaya.core.network.repositiories.MarvelRepository
 import com.jpaya.dynamicfeatures.characterslist.ui.detail.CharacterDetailFragment
 import com.jpaya.dynamicfeatures.characterslist.ui.detail.CharacterDetailViewModel
 import com.jpaya.dynamicfeatures.characterslist.ui.detail.model.CharacterDetailMapper
-import io.mockk.MockKAnnotations
-import io.mockk.every
+import io.mockk.*
 import io.mockk.impl.annotations.MockK
-import io.mockk.mockk
-import io.mockk.mockkStatic
-import io.mockk.slot
-import io.mockk.verify
-import org.junit.Assert.assertEquals
-import org.junit.Before
-import org.junit.Test
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 
 class CharacterDetailModuleTest {
 
@@ -24,7 +19,7 @@ class CharacterDetailModuleTest {
     lateinit var fragment: CharacterDetailFragment
     lateinit var module: CharacterDetailModule
 
-    @Before
+    @BeforeEach
     fun setUp() {
         MockKAnnotations.init(this)
     }

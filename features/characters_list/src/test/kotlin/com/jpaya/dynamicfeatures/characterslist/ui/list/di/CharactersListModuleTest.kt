@@ -8,25 +8,20 @@ import com.jpaya.dynamicfeatures.characterslist.ui.list.CharactersListFragment
 import com.jpaya.dynamicfeatures.characterslist.ui.list.CharactersListViewModel
 import com.jpaya.dynamicfeatures.characterslist.ui.list.model.CharacterItemMapper
 import com.jpaya.dynamicfeatures.characterslist.ui.list.paging.CharactersPageDataSourceFactory
-import io.mockk.MockKAnnotations
-import io.mockk.every
+import io.mockk.*
 import io.mockk.impl.annotations.MockK
-import io.mockk.mockk
-import io.mockk.mockkStatic
-import io.mockk.slot
-import io.mockk.verify
 import kotlinx.coroutines.CoroutineScope
-import org.junit.Assert.assertEquals
-import org.junit.Before
-import org.junit.Test
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 
 class CharactersListModuleTest {
 
     @MockK
     lateinit var fragment: CharactersListFragment
-    lateinit var module: CharactersListModule
+    private lateinit var module: CharactersListModule
 
-    @Before
+    @BeforeEach
     fun setUp() {
         MockKAnnotations.init(this)
     }

@@ -1,57 +1,58 @@
 package com.jpaya.dynamicfeatures.characterslist.ui.list.adapter
 
-import org.junit.Assert
-import org.junit.Test
+import org.junit.jupiter.api.Assertions.assertFalse
+import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.Test
 
 class CharactersListAdapterStateTest {
 
-    lateinit var state: CharactersListAdapterState
+    private lateinit var state: CharactersListAdapterState
 
     @Test
     fun setStateAsAdded_ShouldBeSettled() {
         state = CharactersListAdapterState.Added
 
-        Assert.assertTrue(state.hasExtraRow)
-        Assert.assertTrue(state.isAdded())
+        assertTrue(state.hasExtraRow)
+        assertTrue(state.isAdded())
 
-        Assert.assertFalse(state.isAddLoading())
-        Assert.assertFalse(state.isAddError())
-        Assert.assertFalse(state.isNoMore())
+        assertFalse(state.isAddLoading())
+        assertFalse(state.isAddError())
+        assertFalse(state.isNoMore())
     }
 
     @Test
     fun setStateAsAddLoading_ShouldBeSettled() {
         state = CharactersListAdapterState.AddLoading
 
-        Assert.assertTrue(state.hasExtraRow)
-        Assert.assertTrue(state.isAddLoading())
+        assertTrue(state.hasExtraRow)
+        assertTrue(state.isAddLoading())
 
-        Assert.assertFalse(state.isAdded())
-        Assert.assertFalse(state.isAddError())
-        Assert.assertFalse(state.isNoMore())
+        assertFalse(state.isAdded())
+        assertFalse(state.isAddError())
+        assertFalse(state.isNoMore())
     }
 
     @Test
     fun setStateAsAddError_ShouldBeSettled() {
         state = CharactersListAdapterState.AddError
 
-        Assert.assertTrue(state.hasExtraRow)
-        Assert.assertTrue(state.isAddError())
+        assertTrue(state.hasExtraRow)
+        assertTrue(state.isAddError())
 
-        Assert.assertFalse(state.isAdded())
-        Assert.assertFalse(state.isAddLoading())
-        Assert.assertFalse(state.isNoMore())
+        assertFalse(state.isAdded())
+        assertFalse(state.isAddLoading())
+        assertFalse(state.isNoMore())
     }
 
     @Test
     fun setStateAsNoMore_ShouldBeSettled() {
         state = CharactersListAdapterState.NoMore
 
-        Assert.assertFalse(state.hasExtraRow)
-        Assert.assertTrue(state.isNoMore())
+        assertFalse(state.hasExtraRow)
+        assertTrue(state.isNoMore())
 
-        Assert.assertFalse(state.isAdded())
-        Assert.assertFalse(state.isAddLoading())
-        Assert.assertFalse(state.isAddError())
+        assertFalse(state.isAdded())
+        assertFalse(state.isAddLoading())
+        assertFalse(state.isAddError())
     }
 }

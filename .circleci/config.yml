@@ -1,102 +1,57 @@
+# CircleCI configuration file
+# https://circleci.com/docs/2.0/language-android
 version: 2.1
-
-references:
-  container_config: &container_config
+orbs:
+  codecov: codecov/codecov@1.0.5
+jobs:
+  build:
+    working_directory: ~/kotlin-sample-app
     docker:
       - image: circleci/android:api-28
-
-    working_directory: ~/data
-
     environment:
       GRADLE_OPTS: -Xmx4g -Dorg.gradle.daemon=false
       JVM_OPTS: -Xmx4g
-
-commands:
-  generate-gradle-checksums:
     steps:
-      - run:
-          name: Generate Gradle checksums
-          command: |
-            # This finds all *.kt files and generates checksums for caching
-            find buildSrc -name "*.kt" -type f | sort | xargs shasum  > gradle-checksums.txt
-            cat gradle-checksums.txt
-  restore-gradle-cache:
-    description: Restore the cache of ~/.gradle based on the local build files.
-    steps:
-      - generate-gradle-checksums
+      - checkout
+      - run: echo "fabric.key=$FABRIC_KEY" >> local.properties
+      - run: echo "fabric.secret=$FABRIC_SECRET" >> local.properties
+      - run: echo "marvel.key.public=$MARVEL_KEY_PUBLIC" >> local.properties
+      - run: echo "marvel.key.private=$MARVEL_KEY_PRIVATE" >> local.properties
+      - run: echo "signing.key.alias=$SIGNING_KEY_ALIAS" >> local.properties
+      - run: echo "signing.key.password=$SIGNING_KEY_PASSWORD" >> local.properties
+      - run: echo "signing.store.file=$SIGNING_STORE_FILE" >> local.properties
+      - run: echo "signing.store.password=$SIGNING_STORE_PASSWORD" >> local.properties
+      - run: echo 'export GOOGLE_SERVICES_JSON="$GOOGLE_SERVICES_JSON"' >> $BASH_ENV
+      - run: echo $GOOGLE_SERVICES_JSON | base64 -di > app/google-services.json
       - restore_cache:
-          keys:
-            - gradle-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}-{{ checksum "gradle-checksums.txt" }}
-            - gradle-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}-
-  save-gradle-cache:
-    description: Cache the contents of ~/.gradle based on the local build files.
-    steps:
+          key: gradle-{{ checksum "build.gradle.kts" }}
+#      - run:
+#          name: Run Detekt
+#          command: ./gradlew detekt
+#      - run:
+#          name: Run Ktlint
+#          command: ./gradlew ktlint
+#      - run:
+#          name: Run Lint
+#          command: ./gradlew lintDevDebug
+#      - run:
+#          name: Run Spotless
+#          command: ./gradlew spotlessKotlinCheck
+      - run:
+          name: Run Unit Tests
+          command: ./gradlew testDevDebugUnitTest
+      - run:
+          name: Generate Code Coverage
+          command: ./gradlew jacocoTestReportDevDebug
+      - run:
+          name: Generate Dependency Updates
+          command: ./gradlew dependencyUpdates -Drevision=release
+      - store_artifacts:
+          path: build/dependencyUpdates
+      - codecov/upload:
+          flags: unittest
+          conf: .codecov/config.yml
       - save_cache:
           paths:
             - ~/.gradle
-          key: gradle-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}-{{ checksum "gradle-checksums.txt" }}
-
-jobs:
-  update_dependency_cache:
-    <<: *container_config
-    steps:
-      - checkout
-      - restore-gradle-cache
-      - run: chmod +x gradlew
-      - run: echo "marvel.key.public=$MARVEL_KEY_PUBLIC" >> local.properties
-      - run: echo "marvel.key.private=$MARVEL_KEY_PRIVATE" >> local.properties
-      - run: echo "signing.key.alias=$SIGNING_KEY_ALIAS" >> local.properties
-      - run: echo "signing.key.password=$SIGNING_KEY_PASSWORD" >> local.properties
-      - run: echo "signing.store.file=$SIGNING_STORE_FILE" >> local.properties
-      - run: echo "signing.store.password=$SIGNING_STORE_PASSWORD" >> local.properties
-      - run: echo 'export GOOGLE_SERVICES_JSON="$GOOGLE_SERVICES_JSON"' >> $BASH_ENV
-      - run: echo $GOOGLE_SERVICES_JSON | base64 -di > app/google-services.json
-      - run:
-          name: Download Dependencies
-          command: ./gradlew androidDependencies
-      - save-gradle-cache
-
-  unit_test:
-    <<: *container_config
-    steps:
-      - checkout
-      - restore-gradle-cache
-      - run: echo 'export GOOGLE_SERVICES_JSON="$GOOGLE_SERVICES_JSON"' >> $BASH_ENV
-      - run: echo $GOOGLE_SERVICES_JSON | base64 -di > app/google-services.json
-      # --stacktrace is just a temporary flag to help with debugging of ConcurrentModificationException that happens occasionally
-      - run: chmod +x gradlew
-      - run: echo "marvel.key.public=$MARVEL_KEY_PUBLIC" >> local.properties
-      - run: echo "marvel.key.private=$MARVEL_KEY_PRIVATE" >> local.properties
-      - run: echo "signing.key.alias=$SIGNING_KEY_ALIAS" >> local.properties
-      - run: echo "signing.key.password=$SIGNING_KEY_PASSWORD" >> local.properties
-      - run: echo "signing.store.file=$SIGNING_STORE_FILE" >> local.properties
-      - run: echo "signing.store.password=$SIGNING_STORE_PASSWORD" >> local.properties
-      - run: echo 'export GOOGLE_SERVICES_JSON="$GOOGLE_SERVICES_JSON"' >> $BASH_ENV
-      - run: echo $GOOGLE_SERVICES_JSON | base64 -di > app/google-services.json
-      - run: ./gradlew testDevDebugUnitTest --stacktrace
-      - run:
-          name: Save test results
-          command: |
-            mkdir -p ~/junit/
-            find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} ~/junit/ \;
-          when: always
-      - store_test_results:
-          path: ~/junit
-      - run:
-          name: Save test reports
-          command: |
-            mkdir -p ~/reports/
-            cp -R ./feature_abbreviation/build/reports/* ~/reports/feature_abbreviation
-          when: always
-      - store_artifacts:
-          path: ~/reports/
-          destination: reports
-
-workflows:
-  version: 2
-  check:
-    jobs:
-      - update_dependency_cache
-      - unit_test:
-          requires:
-            - update_dependency_cache
+          key: gradle-{{ checksum "build.gradle.kts" }}

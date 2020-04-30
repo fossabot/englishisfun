@@ -8,7 +8,8 @@ references:
     working_directory: ~/data
 
     environment:
-      JVM_OPTS: -Xmx3g
+      JVM_OPTS: -Xmx2048m
+      GRADLE_OPTS: -Xmx1536m -XX:+HeapDumpOnOutOfMemoryError -Dorg.gradle.caching=true -Dorg.gradle.configureondemand=true -Dkotlin.compiler.execution.strategy=in-process -Dkotlin.incremental=false
 
 commands:
   generate-gradle-checksums:
@@ -72,7 +73,7 @@ jobs:
       - run: echo "signing.store.password=$SIGNING_STORE_PASSWORD" >> local.properties
       - run: echo 'export GOOGLE_SERVICES_JSON="$GOOGLE_SERVICES_JSON"' >> $BASH_ENV
       - run: echo $GOOGLE_SERVICES_JSON | base64 -di > app/google-services.json
-      - run: ./gradlew testDevDebugUnitTest --stacktrace
+      - run: ./gradlew testProdDebugUnitTest --stacktrace
       - run:
           name: Save test results
           command: |

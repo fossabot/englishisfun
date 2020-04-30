@@ -3,7 +3,7 @@ version: 2.1
 references:
   container_config: &container_config
     docker:
-      - image: circleci/android:api-29
+      - image: circleci/android:api-28
 
     working_directory: ~/data
 
@@ -73,7 +73,7 @@ jobs:
       - run: echo "signing.store.password=$SIGNING_STORE_PASSWORD" >> local.properties
       - run: echo 'export GOOGLE_SERVICES_JSON="$GOOGLE_SERVICES_JSON"' >> $BASH_ENV
       - run: echo $GOOGLE_SERVICES_JSON | base64 -di > app/google-services.json
-      - run: ./gradlew testProdReleaseUnitTest --stacktrace
+      - run: ./gradlew testDevDebugUnitTest --stacktrace
       - run:
           name: Save test results
           command: |

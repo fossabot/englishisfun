@@ -9,6 +9,7 @@ references:
 
     environment:
       JVM_OPTS: -Xmx3g
+      GRADLE_OPTS: -Xmx2g -XX:+HeapDumpOnOutOfMemoryError -Dorg.gradle.caching=true -Dorg.gradle.configureondemand=true -Dkotlin.compiler.execution.strategy=in-process -Dkotlin.incremental=false
 
 commands:
   generate-gradle-checksums:

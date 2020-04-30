@@ -13,8 +13,6 @@ jobs:
       JVM_OPTS: -Xmx4g
     steps:
       - checkout
-      - run: echo "fabric.key=$FABRIC_KEY" >> local.properties
-      - run: echo "fabric.secret=$FABRIC_SECRET" >> local.properties
       - run: echo "marvel.key.public=$MARVEL_KEY_PUBLIC" >> local.properties
       - run: echo "marvel.key.private=$MARVEL_KEY_PRIVATE" >> local.properties
       - run: echo "signing.key.alias=$SIGNING_KEY_ALIAS" >> local.properties
@@ -23,21 +21,21 @@ jobs:
       - run: echo "signing.store.password=$SIGNING_STORE_PASSWORD" >> local.properties
       - run: echo 'export GOOGLE_SERVICES_JSON="$GOOGLE_SERVICES_JSON"' >> $BASH_ENV
       - run: echo $GOOGLE_SERVICES_JSON | base64 -di > app/google-services.json
-      - run: chmod +x gradlew
       - restore_cache:
           key: gradle-{{ checksum "build.gradle.kts" }}
-#      - run:
-#          name: Run Detekt
-#          command: ./gradlew detekt
-#      - run:
-#          name: Run Ktlint
-#          command: ./gradlew ktlint
-#      - run:
-#          name: Run Lint
-#          command: ./gradlew lintDevDebug
-#      - run:
-#          name: Run Spotless
-#          command: ./gradlew spotlessKotlinCheck
+      - run: sudo chmod +x gradlew
+      - run:
+          name: Run Detekt
+          command: ./gradlew detekt
+      - run:
+          name: Run Ktlint
+          command: ./gradlew ktlint
+      - run:
+          name: Run Lint
+          command: ./gradlew lintDevDebug
+      - run:
+          name: Run Spotless
+          command: ./gradlew spotlessKotlinCheck
       - run:
           name: Run Unit Tests
           command: ./gradlew testDevDebugUnitTest

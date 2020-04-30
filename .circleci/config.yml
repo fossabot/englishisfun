@@ -23,6 +23,7 @@ jobs:
       - run: echo "signing.store.password=$SIGNING_STORE_PASSWORD" >> local.properties
       - run: echo 'export GOOGLE_SERVICES_JSON="$GOOGLE_SERVICES_JSON"' >> $BASH_ENV
       - run: echo $GOOGLE_SERVICES_JSON | base64 -di > app/google-services.json
+      - run: chmod +x gradlew
       - restore_cache:
           key: gradle-{{ checksum "build.gradle.kts" }}
 #      - run:

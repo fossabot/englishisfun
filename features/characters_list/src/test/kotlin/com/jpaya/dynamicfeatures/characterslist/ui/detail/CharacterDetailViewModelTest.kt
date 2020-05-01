@@ -77,14 +77,14 @@ class CharacterDetailViewModelTest {
         verify { stateObserver.onChanged(CharacterDetailViewState.Loading) }
     }
 
-    //@Test
-    //fun loadCharacterDetail_WhenError_ShouldBeErrorState() {
-    //    viewModel.loadCharacterDetail(1L)
-    //
-    //    val expectedState: CharacterDetailViewState = CharacterDetailViewState.Error
-    //    Assert.assertEquals(expectedState, viewModel.state.value)
-    //    verify { stateObserver.onChanged(expectedState) }
-    //}
+    // @Test
+    // fun loadCharacterDetail_WhenError_ShouldBeErrorState() {
+    //     viewModel.loadCharacterDetail(1L)
+    // 
+    //     val expectedState: CharacterDetailViewState = CharacterDetailViewState.Error
+    //     Assert.assertEquals(expectedState, viewModel.state.value)
+    //     verify { stateObserver.onChanged(expectedState) }
+    // }
 
     @Test
     fun loadCharacterDetail_WhenSuccess_ShouldPostDataResult() {

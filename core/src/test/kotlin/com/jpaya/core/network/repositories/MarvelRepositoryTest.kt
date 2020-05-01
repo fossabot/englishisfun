@@ -16,31 +16,33 @@
 
 package com.jpaya.core.network.repositories
 
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.nhaarman.mockitokotlin2.argumentCaptor
+import com.nhaarman.mockitokotlin2.verify
 import com.jpaya.core.BuildConfig
 import com.jpaya.core.network.repositiories.MarvelRepository
 import com.jpaya.core.network.services.MarvelService
-import com.jpaya.libraries.testutils.rules.InstantExecutorExtension
-import com.nhaarman.mockitokotlin2.argumentCaptor
-import com.nhaarman.mockitokotlin2.verify
 import kotlinx.coroutines.runBlocking
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Assertions.assertNotNull
-import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.extension.ExtendWith
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
+import org.junit.Before
+import org.junit.Rule
+import org.junit.Test
 import org.mockito.Mock
 import org.mockito.MockitoAnnotations
 
 private const val API_PUBLIC_KEY = BuildConfig.MARVEL_API_KEY_PUBLIC
 
-@ExtendWith(InstantExecutorExtension::class)
 class MarvelRepositoryTest {
+
+    @get:Rule
+    val rule = InstantTaskExecutorRule()
 
     @Mock
     lateinit var marvelService: MarvelService
     private lateinit var marvelRepository: MarvelRepository
 
-    @BeforeEach
+    @Before
     fun setUp() {
         MockitoAnnotations.initMocks(this)
         marvelRepository = MarvelRepository(marvelService)

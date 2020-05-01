@@ -16,28 +16,31 @@
 
 package com.jpaya.commons.ui.extensions
 
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.jpaya.libraries.testutils.lifecycle.TestLifecycleOwner
-import com.jpaya.libraries.testutils.rules.InstantExecutorExtension
+import com.jpaya.commons.ui.extensions.observe
 import com.nhaarman.mockitokotlin2.argumentCaptor
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.never
 import com.nhaarman.mockitokotlin2.times
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.extension.ExtendWith
+import com.jpaya.libraries.testutils.lifecycle.TestLifecycleOwner
+import org.junit.Assert.assertEquals
+import org.junit.Before
+import org.junit.Rule
+import org.junit.Test
 import org.mockito.Mockito.anyInt
 import org.mockito.Mockito.verify
 
-@ExtendWith(InstantExecutorExtension::class)
 class LifecycleOwnerExtensionsTest {
+
+    @get:Rule
+    val rule = InstantTaskExecutorRule()
 
     private lateinit var lifecycleOwner: LifecycleOwner
 
-    @BeforeEach
+    @Before
     fun setUp() {
         lifecycleOwner = TestLifecycleOwner()
     }

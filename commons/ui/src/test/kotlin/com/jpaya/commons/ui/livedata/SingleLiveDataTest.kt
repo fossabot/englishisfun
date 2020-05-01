@@ -16,32 +16,38 @@
 
 package com.jpaya.commons.ui.livedata
 
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.LifecycleOwner
 import com.jpaya.commons.ui.extensions.observe
-import com.jpaya.libraries.testutils.lifecycle.TestLifecycleOwner
-import com.jpaya.libraries.testutils.rules.InstantExecutorExtension
 import com.nhaarman.mockitokotlin2.argumentCaptor
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.times
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.extension.ExtendWith
-import org.mockito.Mockito.*
+import com.jpaya.commons.ui.extensions.observe
+import com.jpaya.libraries.testutils.lifecycle.TestLifecycleOwner
+import org.junit.Assert.assertEquals
+import org.junit.Before
+import org.junit.Rule
+import org.junit.Test
+import org.mockito.Mockito
+import org.mockito.Mockito.anyString
+import org.mockito.Mockito.never
+import org.mockito.Mockito.verify
 
-@ExtendWith(InstantExecutorExtension::class)
 class SingleLiveDataTest {
+
+    @get:Rule
+    val rule = InstantTaskExecutorRule()
 
     private lateinit var lifecycleOwner: LifecycleOwner
 
-    @BeforeEach
+    @Before
     fun setUp() {
         lifecycleOwner = TestLifecycleOwner()
     }
 
     @Test
     fun observingSingleLiveData_WhenPostStringValue_ShouldTriggerOneEvent() {
-        val singleLiveData = SingleLiveData<String>()
+        val singleLiveData = com.jpaya.commons.ui.livedata.SingleLiveData<String>()
         val observerPostValue = "Event Value"
         val observer = mock<(String) -> Unit>()
         val observerCaptor = argumentCaptor<String>()
@@ -55,7 +61,7 @@ class SingleLiveDataTest {
 
     @Test
     fun observingSingleLiveData_WhenPostMultipleIntValue_ShouldTriggerMultipleTimes() {
-        val singleLiveData = SingleLiveData<Int>()
+        val singleLiveData = com.jpaya.commons.ui.livedata.SingleLiveData<Int>()
         val observerPostValue = 1
         val observer = mock<(Int) -> Unit>()
         val observerCaptor = argumentCaptor<Int>()
@@ -69,13 +75,13 @@ class SingleLiveDataTest {
 
         singleLiveData.postValue(observerPostValue)
 
-        verify(observer, times(3)).invoke(observerCaptor.capture())
+        Mockito.verify(observer, times(3)).invoke(observerCaptor.capture())
         assertEquals(observerPostValue, observerCaptor.lastValue)
     }
 
     @Test
     fun multipleObservingSingleLiveData_WhenPostIntValue_ShouldTriggerOnlyFirstObserver() {
-        val singleLiveData = SingleLiveData<String>()
+        val singleLiveData = com.jpaya.commons.ui.livedata.SingleLiveData<String>()
         val observerPostValue = "Event Value"
         val observer1 = mock<(String) -> Unit>()
         val observer2 = mock<(String) -> Unit>()
@@ -96,11 +102,11 @@ class SingleLiveDataTest {
 
     @Test
     fun observingSingleLiveData_WithoutPostValue_ShouldNotTrigger() {
-        val singleLiveData = SingleLiveData<Int>()
+        val singleLiveData = com.jpaya.commons.ui.livedata.SingleLiveData<Int>()
         val observer = mock<(Int) -> Unit>()
 
         lifecycleOwner.observe(singleLiveData, observer)
 
-        verify(observer, never()).invoke(anyInt())
+        verify(observer, never()).invoke(Mockito.anyInt())
     }
 }

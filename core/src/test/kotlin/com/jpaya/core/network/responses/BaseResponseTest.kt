@@ -16,9 +16,10 @@
 
 package com.jpaya.core.network.responses
 
+import com.jpaya.core.network.responses.DataResponse
 import com.nhaarman.mockitokotlin2.mock
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Test
+import org.junit.Assert
+import org.junit.Test
 
 class BaseResponseTest {
 
@@ -36,9 +37,9 @@ class BaseResponseTest {
             data = data
         )
 
-        assertEquals(code, baseResponse.code)
-        assertEquals(status, baseResponse.status)
-        assertEquals(message, baseResponse.message)
-        assertEquals(data, baseResponse.data)
+        Assert.assertEquals(code, baseResponse.code)
+        Assert.assertEquals(status, baseResponse.status)
+        Assert.assertEquals(message, baseResponse.message)
+        Assert.assertEquals(data, baseResponse.data)
     }
 }

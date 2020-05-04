@@ -14,14 +14,8 @@
  * limitations under the License.
  */
 
-import dependencies.Dependencies
-import dependencies.DebugDependencies
-import dependencies.AnnotationProcessorsDependencies
-import extensions.addTestsDependencies
-import extensions.implementation
-import extensions.debugImplementation
-import extensions.getLocalProperty
-import extensions.kapt
+import dependencies.*
+import extensions.*
 
 plugins {
     id(BuildPlugins.ANDROID_APPLICATION)
@@ -146,23 +140,24 @@ afterEvaluate {
 
 dependencies {
     implementation(project(BuildModules.CORE))
-
-    implementation(Dependencies.KOTLIN)
-    implementation(Dependencies.APPCOMPAT)
-    implementation(Dependencies.MATERIAL)
-    implementation(Dependencies.CONSTRAINT_LAYOUT)
-    implementation(Dependencies.NAVIGATION_FRAGMENT)
-    implementation(Dependencies.TIMBER)
-    implementation(Dependencies.LOGGING)
-    implementation(Dependencies.PLAY_CORE)
-    implementation(Dependencies.DAGGER)
-    implementation(Dependencies.FIREBASE_ANALYTICS)
-    implementation(Dependencies.FIREBASE_FIRESTORE)
-    implementation(Dependencies.FIREBASE_AUTH)
-
+    implementation(
+        arrayOf(
+            Dependencies.KOTLIN,
+            Dependencies.APPCOMPAT,
+            Dependencies.MATERIAL,
+            Dependencies.CONSTRAINT_LAYOUT,
+            Dependencies.NAVIGATION_FRAGMENT,
+            Dependencies.TIMBER,
+            Dependencies.LOGGING,
+            Dependencies.PLAY_CORE,
+            Dependencies.DAGGER,
+            Dependencies.FIREBASE_ANALYTICS,
+            Dependencies.FIREBASE_FIRESTORE,
+            Dependencies.FIREBASE_AUTH
+        )
+    )
     debugImplementation(DebugDependencies.LEAKCANARY)
-
     kapt(AnnotationProcessorsDependencies.DAGGER)
-
-    addTestsDependencies()
+    testImplementation(TestDependencies.all())
+    androidTestImplementation(TestAndroidDependencies.all())
 }

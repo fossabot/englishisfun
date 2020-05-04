@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-import dependencies.Dependencies
 import dependencies.AnnotationProcessorsDependencies
+import dependencies.Dependencies
 import extensions.implementation
 import extensions.kapt
 
@@ -28,16 +28,19 @@ junitJacoco {
 }
 
 dependencies {
-    implementation(Dependencies.LIFECYCLE_EXTENSIONS)
-    implementation(Dependencies.LIFECYCLE_VIEWMODEL)
-    implementation(Dependencies.CONSTRAINT_LAYOUT)
-    implementation(Dependencies.RECYCLER_VIEW)
-    implementation(Dependencies.CORE_KTX)
-    implementation(Dependencies.FRAGMENT_KTX)
-    implementation(Dependencies.NAVIGATION_FRAGMENT)
-    implementation(Dependencies.NAVIGATION_UI)
-    implementation(Dependencies.PAGING)
-    implementation(Dependencies.COIL)
-
+    implementation(
+        arrayOf(
+            Dependencies.LIFECYCLE_EXTENSIONS,
+            Dependencies.LIFECYCLE_VIEWMODEL,
+            Dependencies.CONSTRAINT_LAYOUT,
+            Dependencies.RECYCLER_VIEW,
+            Dependencies.CORE_KTX,
+            Dependencies.FRAGMENT_KTX,
+            Dependencies.NAVIGATION_FRAGMENT,
+            Dependencies.NAVIGATION_UI,
+            Dependencies.PAGING,
+            Dependencies.COIL
+        )
+    )
     kapt(AnnotationProcessorsDependencies.DATABINDING)
 }

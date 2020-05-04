@@ -17,15 +17,19 @@
 package commons
 
 import BuildAndroidConfig
+import BuildModules
 import BuildProductDimensions
 import ProductFlavorDevelop
 import ProductFlavorProduction
 import ProductFlavorQA
-import dependencies.Dependencies
 import dependencies.AnnotationProcessorsDependencies
-import extensions.addTestsDependencies
+import dependencies.Dependencies
+import dependencies.TestAndroidDependencies
+import dependencies.TestDependencies
 import extensions.implementation
 import extensions.kapt
+import extensions.testImplementation
+import extensions.androidTestImplementation
 
 plugins {
     id("com.android.dynamic-feature")
@@ -125,5 +129,6 @@ dependencies {
     kapt(AnnotationProcessorsDependencies.ROOM)
 
     testImplementation(project(BuildModules.Libraries.TEST_UTILS))
-    addTestsDependencies()
+    testImplementation(TestDependencies.all())
+    androidTestImplementation(TestAndroidDependencies.all())
 }

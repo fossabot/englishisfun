@@ -23,7 +23,9 @@ import ProductFlavorProduction
 import ProductFlavorQA
 import dependencies.Dependencies
 import dependencies.AnnotationProcessorsDependencies
-import extensions.addTestsDependencies
+import dependencies.TestAndroidDependencies
+import dependencies.TestDependencies
+import extensions.androidTestImplementation
 import extensions.implementation
 import extensions.testImplementation
 import extensions.kapt
@@ -105,5 +107,6 @@ dependencies {
     kapt(AnnotationProcessorsDependencies.DAGGER)
 
     testImplementation(project(BuildModules.Libraries.TEST_UTILS))
-    addTestsDependencies()
+    testImplementation(TestDependencies.all())
+    androidTestImplementation(TestAndroidDependencies.all())
 }

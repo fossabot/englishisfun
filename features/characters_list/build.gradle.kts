@@ -24,8 +24,11 @@ plugins {
 dependencies {
     implementation(project(BuildModules.Features.HOME))
     implementation(project(BuildModules.Commons.VIEWS))
-
-    implementation(Dependencies.RECYCLER_VIEW)
-    implementation(Dependencies.SWIPE_REFRESH_LAYOUT)
-    implementation(Dependencies.PAGING)
+    implementation(
+        arrayOf(
+            Dependencies.RECYCLER_VIEW,
+            Dependencies.SWIPE_REFRESH_LAYOUT,
+            Dependencies.PAGING
+        )
+    )
 }

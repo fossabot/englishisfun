@@ -23,6 +23,5 @@ plugins {
 
 dependencies {
     implementation(project(BuildModules.Features.HOME))
-
     implementation(Dependencies.RECYCLER_VIEW)
 }

@@ -23,10 +23,13 @@ plugins {
 
 dependencies {
     implementation(project(BuildModules.Features.HOME))
-
-    implementation(Dependencies.RECYCLER_VIEW)
-    implementation(Dependencies.PAGING)
-    implementation(Dependencies.FIREBASE_ANALYTICS)
-    implementation(Dependencies.FIREBASE_FIRESTORE)
-    implementation(Dependencies.COROUTINES_PLAY_SERVICES)
+    implementation(
+        arrayOf(
+            Dependencies.RECYCLER_VIEW,
+            Dependencies.PAGING,
+            Dependencies.FIREBASE_ANALYTICS,
+            Dependencies.FIREBASE_FIRESTORE,
+            Dependencies.COROUTINES_PLAY_SERVICES
+        )
+    )
 }

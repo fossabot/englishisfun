@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-import dependencies.Dependencies
 import dependencies.AnnotationProcessorsDependencies
+import dependencies.Dependencies
 import extensions.implementation
 import extensions.kapt
 
@@ -25,11 +25,13 @@ plugins {
 
 dependencies {
     implementation(project(BuildModules.Commons.UI))
-
-    implementation(Dependencies.CONSTRAINT_LAYOUT)
-    implementation(Dependencies.NAVIGATION_FRAGMENT)
-    implementation(Dependencies.NAVIGATION_UI)
-    implementation(Dependencies.FRAGMENT_KTX)
-
+    implementation(
+        arrayOf(
+            Dependencies.CONSTRAINT_LAYOUT,
+            Dependencies.NAVIGATION_FRAGMENT,
+            Dependencies.NAVIGATION_UI,
+            Dependencies.FRAGMENT_KTX
+        )
+    )
     kapt(AnnotationProcessorsDependencies.DATABINDING)
 }

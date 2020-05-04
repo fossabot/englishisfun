@@ -22,20 +22,25 @@ import com.jpaya.core.database.characterfavorite.CharacterFavoriteRepository
 import com.jpaya.dynamicfeatures.charactersfavorites.ui.favorite.CharactersFavoriteFragment
 import com.jpaya.dynamicfeatures.charactersfavorites.ui.favorite.CharactersFavoriteViewModel
 import com.jpaya.dynamicfeatures.charactersfavorites.ui.favorite.di.CharactersFavoriteModule
-import io.mockk.*
+import io.mockk.MockKAnnotations
+import io.mockk.every
 import io.mockk.impl.annotations.MockK
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Assertions.assertNotNull
-import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Test
+import io.mockk.mockk
+import io.mockk.mockkStatic
+import io.mockk.slot
+import io.mockk.verify
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
+import org.junit.Before
+import org.junit.Test
 
 class CharactersFavoriteModuleTest {
 
     @MockK
     lateinit var fragment: CharactersFavoriteFragment
-    private lateinit var module: CharactersFavoriteModule
+    lateinit var module: CharactersFavoriteModule
 
-    @BeforeEach
+    @Before
     fun setUp() {
         MockKAnnotations.init(this)
     }

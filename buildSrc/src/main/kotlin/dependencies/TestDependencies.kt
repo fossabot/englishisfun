@@ -5,7 +5,7 @@ package dependencies
  * other library modules to build.
  */
 object TestDependencies {
-    const val JUNIT = "org.junit.jupiter:junit-jupiter-api:${BuildDependenciesVersions.JUNIT}"
+    const val JUNIT = "junit:junit:${BuildDependenciesVersions.JUNIT}"
     const val MOCKITO = "com.nhaarman.mockitokotlin2:mockito-kotlin:${BuildDependenciesVersions.MOCKITO}"
     const val MOCKK = "io.mockk:mockk:${BuildDependenciesVersions.MOCKK}"
     const val ASSERTJ = "org.assertj:assertj-core:${BuildDependenciesVersions.ASSERTJ}"

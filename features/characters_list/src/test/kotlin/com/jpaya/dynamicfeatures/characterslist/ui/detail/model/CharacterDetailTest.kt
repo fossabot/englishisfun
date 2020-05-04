@@ -16,8 +16,8 @@
 
 package com.jpaya.dynamicfeatures.characterslist.ui.detail.model
 
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Test
+import org.junit.Assert
+import org.junit.Test
 
 class CharacterDetailTest {
 
@@ -35,9 +35,9 @@ class CharacterDetailTest {
             imageUrl = imageUrl
         )
 
-        assertEquals(id, character.id)
-        assertEquals(name, character.name)
-        assertEquals(description, character.description)
-        assertEquals(imageUrl, character.imageUrl)
+        Assert.assertEquals(id, character.id)
+        Assert.assertEquals(name, character.name)
+        Assert.assertEquals(description, character.description)
+        Assert.assertEquals(imageUrl, character.imageUrl)
     }
 }

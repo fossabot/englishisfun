@@ -21,9 +21,9 @@ import com.jpaya.core.network.responses.CharacterResponse
 import com.jpaya.core.network.responses.CharacterThumbnailResponse
 import com.jpaya.core.network.responses.DataResponse
 import kotlinx.coroutines.runBlocking
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Assertions.assertTrue
-import org.junit.jupiter.api.Test
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
+import org.junit.Test
 
 class CharacterItemMapperTest {
 

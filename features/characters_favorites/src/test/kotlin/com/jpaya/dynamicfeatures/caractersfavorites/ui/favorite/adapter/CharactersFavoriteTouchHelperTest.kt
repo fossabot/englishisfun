@@ -16,24 +16,31 @@
 
 package com.jpaya.dynamicfeatures.caractersfavorites.ui.favorite.adapter
 
-import androidx.recyclerview.widget.ItemTouchHelper.*
+import androidx.recyclerview.widget.ItemTouchHelper.ACTION_STATE_IDLE
+import androidx.recyclerview.widget.ItemTouchHelper.LEFT
+import androidx.recyclerview.widget.ItemTouchHelper.RIGHT
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.NO_POSITION
 import com.jpaya.dynamicfeatures.charactersfavorites.ui.favorite.adapter.CharactersFavoriteTouchHelper
-import io.mockk.*
+import io.mockk.Called
+import io.mockk.MockKAnnotations
+import io.mockk.every
 import io.mockk.impl.annotations.MockK
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Assertions.assertTrue
-import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Test
+import io.mockk.mockk
+import io.mockk.verify
+import io.mockk.verifyAll
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
+import org.junit.Before
+import org.junit.Test
 
 class CharactersFavoriteTouchHelperTest {
 
     @MockK(relaxed = true)
     lateinit var onSwiped: (Int) -> Unit
-    private lateinit var touchHelper: CharactersFavoriteTouchHelper
+    lateinit var touchHelper: CharactersFavoriteTouchHelper
 
-    @BeforeEach
+    @Before
     fun setUp() {
         MockKAnnotations.init(this)
         touchHelper = CharactersFavoriteTouchHelper(onSwiped)

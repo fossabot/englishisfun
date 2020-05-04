@@ -21,33 +21,30 @@ import com.jpaya.core.network.responses.CharacterResponse
 import com.jpaya.core.network.responses.CharacterThumbnailResponse
 import com.jpaya.core.network.responses.DataResponse
 import kotlinx.coroutines.runBlocking
-import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Test
+import org.junit.Assert.assertEquals
+import org.junit.Test
 
 class CharacterDetailMapperTest {
 
     private val mapper = CharacterDetailMapper()
 
-    @Test
+    @Test(expected = NoSuchElementException::class)
     fun characterMapper_WithEmptyResults_ShouldThrowException() {
-        Assertions.assertThrows(NoSuchElementException::class.java) {
-            runBlocking {
-                val response = BaseResponse(
-                    code = 200,
-                    status = "Ok",
-                    message = "Ok",
-                    data = DataResponse<CharacterResponse>(
-                        offset = 0,
-                        limit = 0,
-                        total = 0,
-                        count = 0,
-                        results = emptyList()
-                    )
+        runBlocking {
+            val response = BaseResponse(
+                code = 200,
+                status = "Ok",
+                message = "Ok",
+                data = DataResponse<CharacterResponse>(
+                    offset = 0,
+                    limit = 0,
+                    total = 0,
+                    count = 0,
+                    results = emptyList()
                 )
+            )
 
-                mapper.map(response)
-            }
+            mapper.map(response)
         }
     }
 

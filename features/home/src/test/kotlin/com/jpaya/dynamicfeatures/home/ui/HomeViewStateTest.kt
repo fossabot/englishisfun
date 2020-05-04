@@ -16,13 +16,13 @@
 
 package com.jpaya.dynamicfeatures.home.ui
 
-import org.junit.jupiter.api.Assertions.assertFalse
-import org.junit.jupiter.api.Assertions.assertTrue
-import org.junit.jupiter.api.Test
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
+import org.junit.Test
 
 class HomeViewStateTest {
 
-    private lateinit var state: HomeViewState
+    lateinit var state: HomeViewState
 
     @Test
     fun setStateAsFullScreen_ShouldBeSettled() {

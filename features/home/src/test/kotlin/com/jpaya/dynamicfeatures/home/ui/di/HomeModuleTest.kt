@@ -20,21 +20,26 @@ import androidx.lifecycle.ViewModel
 import com.jpaya.commons.ui.extensions.viewModel
 import com.jpaya.dynamicfeatures.home.ui.HomeFragment
 import com.jpaya.dynamicfeatures.home.ui.HomeViewModel
-import io.mockk.*
+import io.mockk.MockKAnnotations
+import io.mockk.every
 import io.mockk.impl.annotations.MockK
-import org.hamcrest.MatcherAssert.assertThat
+import io.mockk.mockk
+import io.mockk.mockkStatic
+import io.mockk.slot
+import io.mockk.verify
 import org.hamcrest.Matchers.instanceOf
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Test
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertThat
+import org.junit.Before
+import org.junit.Test
 
 class HomeModuleTest {
 
     @MockK
     lateinit var fragment: HomeFragment
-    private lateinit var module: HomeModule
+    lateinit var module: HomeModule
 
-    @BeforeEach
+    @Before
     fun setUp() {
         MockKAnnotations.init(this)
     }

@@ -31,5 +31,5 @@ dependencies {
         )
     )
     implementation(TestDependencies.all())
-    kapt(AnnotationProcessorsDependencies.AUTO_SERVICE)
+    annotationProcessor(AnnotationProcessorsDependencies.AUTO_SERVICE)
 }

@@ -23,8 +23,7 @@ import com.jpaya.core.mapper.Mapper
  *
  * @see Mapper
  */
-class AbbreviationItemMapper :
-    Mapper<MutableList<HashMap<String, String>>, MutableList<AbbreviationItem>> {
+class AbbreviationItemMapper : Mapper<MutableList<HashMap<String, String>>, MutableList<AbbreviationItem>> {
 
     /**
      * Transform network response to [AbbreviationItem].

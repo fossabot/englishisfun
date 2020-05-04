@@ -16,15 +16,15 @@
 
 package com.jpaya.core.database.charactersfavorite
 
+import com.nhaarman.mockitokotlin2.argumentCaptor
+import com.nhaarman.mockitokotlin2.verify
 import com.jpaya.core.database.characterfavorite.CharacterFavorite
 import com.jpaya.core.database.characterfavorite.CharacterFavoriteDao
 import com.jpaya.core.database.characterfavorite.CharacterFavoriteRepository
-import com.nhaarman.mockitokotlin2.argumentCaptor
-import com.nhaarman.mockitokotlin2.verify
 import kotlinx.coroutines.runBlocking
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Test
+import org.junit.Assert.assertEquals
+import org.junit.Before
+import org.junit.Test
 import org.mockito.Mock
 import org.mockito.MockitoAnnotations
 
@@ -32,9 +32,9 @@ class CharacterFavoriteRepositoryTest {
 
     @Mock
     lateinit var characterFavoriteDao: CharacterFavoriteDao
-    private lateinit var characterFavoriteRepository: CharacterFavoriteRepository
+    lateinit var characterFavoriteRepository: CharacterFavoriteRepository
 
-    @BeforeEach
+    @Before
     fun setUp() {
         MockitoAnnotations.initMocks(this)
         characterFavoriteRepository =

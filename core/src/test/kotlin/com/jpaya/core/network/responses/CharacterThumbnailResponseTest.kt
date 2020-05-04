@@ -16,7 +16,6 @@
 
 package com.jpaya.core.network.responses
 
-import com.jpaya.core.network.responses.CharacterThumbnailResponse
 import org.junit.Assert
 import org.junit.Test
 

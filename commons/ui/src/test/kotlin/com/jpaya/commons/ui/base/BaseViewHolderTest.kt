@@ -18,7 +18,6 @@ package com.jpaya.commons.ui.base
 
 import android.view.View
 import androidx.databinding.ViewDataBinding
-import com.jpaya.commons.ui.base.BaseViewHolder
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever

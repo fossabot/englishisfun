@@ -20,18 +20,9 @@ import android.view.ViewGroup
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.paging.PagedList
 import androidx.recyclerview.widget.RecyclerView
-import com.nhaarman.mockitokotlin2.after
-import com.nhaarman.mockitokotlin2.doReturn
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.never
-import com.nhaarman.mockitokotlin2.same
-import com.nhaarman.mockitokotlin2.verify
-import com.nhaarman.mockitokotlin2.whenever
-import com.jpaya.libraries.testutils.pagelist.pagedListOf
 import com.jpaya.libraries.testutils.robolectric.TestRobolectric
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertNull
-import org.junit.Assert.assertTrue
+import com.nhaarman.mockitokotlin2.*
+import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -91,23 +82,23 @@ class BasePagedListAdapterTest : TestRobolectric() {
         verify(adapter).onCreateViewHolder(same(parent), same(viewType))
     }
 
-    @Test
-    fun listedRecycleView_ShouldInvokeItemsComparator() {
-        adapter.submitList(pagedListOf("item1", "item2"))
-        adapter.submitList(pagedListOf("item3", "item4"))
+//    @Test
+//    fun listedRecycleView_ShouldInvokeItemsComparator() {
+//        adapter.submitList(pagedListOf("item1", "item2"))
+//        adapter.submitList(pagedListOf("item3", "item4"))
+//
+//        verify(itemsSame, after(300).atLeastOnce()).invoke(anyString(), anyString())
+//    }
 
-        verify(itemsSame, after(300).atLeastOnce()).invoke(anyString(), anyString())
-    }
-
-    @Test
-    fun listedRecycleView_ShouldInvokeContentComparator() {
-        doReturn(true).whenever(itemsSame).invoke(anyString(), anyString())
-
-        adapter.submitList(pagedListOf("item1", "item2"))
-        adapter.submitList(pagedListOf("item6", "item4", "item2"))
-
-        verify(contentsSame, after(300).atLeastOnce()).invoke(anyString(), anyString())
-    }
+//    @Test
+//    fun listedRecycleView_ShouldInvokeContentComparator() {
+//        doReturn(true).whenever(itemsSame).invoke(anyString(), anyString())
+//
+//        adapter.submitList(pagedListOf("item1", "item2"))
+//        adapter.submitList(pagedListOf("item6", "item4", "item2"))
+//
+//        verify(contentsSame, after(300).atLeastOnce()).invoke(anyString(), anyString())
+//    }
 
     @Test
     fun emptyRecycleView_ShouldNotInvokeAnyComparator() {

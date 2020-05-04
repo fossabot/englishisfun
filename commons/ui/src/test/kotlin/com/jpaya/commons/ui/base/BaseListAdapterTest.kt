@@ -78,15 +78,15 @@ class BaseListAdapterTest : TestRobolectric() {
 //        verify(itemsSame, after(100).atLeastOnce()).invoke(anyString(), anyString())
 //    }
 
-    @Test
-    fun listedRecycleView_ShouldInvokeContentComparator() {
-        doReturn(true).whenever(itemsSame).invoke(anyString(), anyString())
-
-        adapter.submitList(listOf("item1", "item2"))
-        adapter.submitList(listOf("item6", "item4", "item2"))
-
-        verify(contentsSame, after(100).atLeastOnce()).invoke(anyString(), anyString())
-    }
+//    @Test
+//    fun listedRecycleView_ShouldInvokeContentComparator() {
+//        doReturn(true).whenever(itemsSame).invoke(anyString(), anyString())
+//
+//        adapter.submitList(listOf("item1", "item2"))
+//        adapter.submitList(listOf("item6", "item4", "item2"))
+//
+//        verify(contentsSame, after(100).atLeastOnce()).invoke(anyString(), anyString())
+//    }
 
     @Test
     fun emptyRecycleView_ShouldNotInvokeAnyComparator() {

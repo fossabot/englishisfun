@@ -16,9 +16,10 @@
 
 package com.jpaya.core.network.services
 
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.jpaya.core.network.responses.BaseResponse
 import com.jpaya.core.network.responses.CharacterResponse
-import com.jpaya.libraries.testutils.rules.InstantExecutorExtension
+import kotlin.math.roundToInt
 import kotlinx.coroutines.runBlocking
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
@@ -26,15 +27,14 @@ import okio.buffer
 import okio.source
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.instanceOf
-import org.junit.jupiter.api.AfterEach
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Assertions.assertNull
-import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.extension.ExtendWith
+import org.junit.After
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNull
+import org.junit.Before
+import org.junit.Rule
+import org.junit.Test
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import kotlin.math.roundToInt
 
 object MockResponses {
     object GetCharacters {
@@ -50,13 +50,15 @@ object MockResponses {
     }
 }
 
-@ExtendWith(InstantExecutorExtension::class)
 class MarvelServiceTest {
+
+    @get:Rule
+    val rule = InstantTaskExecutorRule()
 
     private lateinit var service: MarvelService
     private lateinit var mockWebServer: MockWebServer
 
-    @BeforeEach
+    @Before
     fun setUp() {
         mockWebServer = MockWebServer()
         service = Retrofit.Builder()
@@ -66,7 +68,7 @@ class MarvelServiceTest {
             .create(MarvelService::class.java)
     }
 
-    @AfterEach
+    @After
     fun tearDown() {
         mockWebServer.shutdown()
     }

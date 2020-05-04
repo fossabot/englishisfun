@@ -16,6 +16,7 @@
 
 package com.jpaya.dynamicfeatures.characterslist.ui.detail
 
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.jpaya.core.database.characterfavorite.CharacterFavoriteRepository
 import com.jpaya.core.network.repositiories.MarvelRepository
@@ -23,16 +24,27 @@ import com.jpaya.core.network.responses.BaseResponse
 import com.jpaya.core.network.responses.CharacterResponse
 import com.jpaya.dynamicfeatures.characterslist.ui.detail.model.CharacterDetail
 import com.jpaya.dynamicfeatures.characterslist.ui.detail.model.CharacterDetailMapper
-import com.jpaya.libraries.testutils.rules.InstantExecutorExtension
-import io.mockk.*
+import com.jpaya.libraries.testutils.rules.CoroutineRule
+import io.mockk.MockKAnnotations
+import io.mockk.coEvery
+import io.mockk.coVerify
 import io.mockk.impl.annotations.MockK
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.extension.ExtendWith
+import io.mockk.mockk
+import io.mockk.verify
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import org.junit.Assert
+import org.junit.Before
+import org.junit.Rule
+import org.junit.Test
 
-@ExtendWith(InstantExecutorExtension::class)
 class CharacterDetailViewModelTest {
+
+    @ExperimentalCoroutinesApi
+    @get:Rule
+    var coroutinesTestRule = CoroutineRule()
+
+    @get:Rule
+    var instantTaskExecutorRule = InstantTaskExecutorRule()
 
     @MockK(relaxed = true)
     lateinit var marvelRepository: MarvelRepository
@@ -46,7 +58,7 @@ class CharacterDetailViewModelTest {
     lateinit var dataObserver: Observer<CharacterDetail>
     lateinit var viewModel: CharacterDetailViewModel
 
-    @BeforeEach
+    @Before
     fun setUp() {
         MockKAnnotations.init(this)
         viewModel = CharacterDetailViewModel(
@@ -63,15 +75,6 @@ class CharacterDetailViewModelTest {
         viewModel.loadCharacterDetail(1L)
 
         verify { stateObserver.onChanged(CharacterDetailViewState.Loading) }
-    }
-
-    @Test
-    fun loadCharacterDetail_WhenError_ShouldBeErrorState() {
-        viewModel.loadCharacterDetail(1L)
-
-        val expectedState: CharacterDetailViewState = CharacterDetailViewState.Error
-        assertEquals(expectedState, viewModel.state.value)
-        verify { stateObserver.onChanged(expectedState) }
     }
 
     @Test
@@ -99,7 +102,7 @@ class CharacterDetailViewModelTest {
         viewModel.loadCharacterDetail(1L)
 
         val expectedState = CharacterDetailViewState.AddToFavorite
-        assertEquals(expectedState, viewModel.state.value)
+        Assert.assertEquals(expectedState, viewModel.state.value)
         verify { stateObserver.onChanged(expectedState) }
     }
 
@@ -113,7 +116,7 @@ class CharacterDetailViewModelTest {
         viewModel.loadCharacterDetail(1L)
 
         val expectedState = CharacterDetailViewState.AlreadyAddedToFavorite
-        assertEquals(expectedState, viewModel.state.value)
+        Assert.assertEquals(expectedState, viewModel.state.value)
         verify { stateObserver.onChanged(expectedState) }
     }
 
@@ -142,7 +145,7 @@ class CharacterDetailViewModelTest {
         viewModel.addCharacterToFavorite()
 
         val expectedState = CharacterDetailViewState.AddedToFavorite
-        assertEquals(expectedState, viewModel.state.value)
+        Assert.assertEquals(expectedState, viewModel.state.value)
         verify { stateObserver.onChanged(expectedState) }
         coVerify {
             characterFavoriteRepository.insertCharacterFavorite(
@@ -158,7 +161,7 @@ class CharacterDetailViewModelTest {
         viewModel.dismissCharacterDetail()
 
         val expectedState = CharacterDetailViewState.Dismiss
-        assertEquals(expectedState, viewModel.state.value)
+        Assert.assertEquals(expectedState, viewModel.state.value)
         verify { stateObserver.onChanged(expectedState) }
     }
 }

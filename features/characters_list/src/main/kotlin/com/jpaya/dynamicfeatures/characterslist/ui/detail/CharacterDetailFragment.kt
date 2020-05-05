@@ -22,7 +22,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.Snackbar
 import com.jpaya.commons.ui.base.BaseFragment
-import com.jpaya.englishisfun.SampleApp.Companion.coreComponent
+import com.jpaya.englishisfun.EnglishIsFunApp.Companion.coreComponent
 import com.jpaya.commons.ui.extensions.observe
 import com.jpaya.commons.views.ProgressBarDialog
 import com.jpaya.dynamicfeatures.characterslist.R

@@ -19,7 +19,7 @@ package com.jpaya.dynamicfeatures.charactersfavorites.ui.favorite
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.ItemTouchHelper
-import com.jpaya.englishisfun.SampleApp
+import com.jpaya.englishisfun.EnglishIsFunApp
 import com.jpaya.commons.ui.base.BaseFragment
 import com.jpaya.commons.ui.extensions.observe
 import com.jpaya.core.database.characterfavorite.CharacterFavorite
@@ -63,7 +63,7 @@ class CharactersFavoriteFragment :
     override fun onInitDependencyInjection() {
         DaggerCharactersFavoriteComponent
             .builder()
-            .coreComponent(SampleApp.coreComponent(requireContext()))
+            .coreComponent(EnglishIsFunApp.coreComponent(requireContext()))
             .charactersFavoriteModule(CharactersFavoriteModule(this))
             .build()
             .inject(this)

@@ -32,7 +32,7 @@ import kotlin.random.Random
  *
  * @see SplitCompatApplication
  */
-class SampleApp : SplitCompatApplication() {
+class EnglishIsFunApp : SplitCompatApplication() {
 
     lateinit var coreComponent: CoreComponent
 
@@ -47,8 +47,7 @@ class SampleApp : SplitCompatApplication() {
          * @param context The application context
          */
         @JvmStatic
-        fun coreComponent(context: Context) =
-            (context.applicationContext as? SampleApp)?.coreComponent
+        fun coreComponent(context: Context) = (context.applicationContext as? EnglishIsFunApp)?.coreComponent
     }
 
     /**
@@ -64,10 +63,6 @@ class SampleApp : SplitCompatApplication() {
         initAppDependencyInjection()
         initRandomNightMode()
     }
-
-    // ============================================================================================
-    //  Private init methods
-    // ============================================================================================
 
     /**
      * Initialize app dependency injection component.

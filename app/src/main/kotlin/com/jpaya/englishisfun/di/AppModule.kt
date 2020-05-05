@@ -17,7 +17,7 @@
 package com.jpaya.englishisfun.di
 
 import android.content.Context
-import com.jpaya.englishisfun.SampleApp
+import com.jpaya.englishisfun.EnglishIsFunApp
 import dagger.Module
 import dagger.Provides
 
@@ -37,5 +37,5 @@ class AppModule {
      * @see Provides
      */
     @Provides
-    fun provideContext(application: SampleApp): Context = application.applicationContext
+    fun provideContext(application: EnglishIsFunApp): Context = application.applicationContext
 }

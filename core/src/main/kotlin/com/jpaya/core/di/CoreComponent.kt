@@ -17,6 +17,7 @@
 package com.jpaya.core.di
 
 import android.content.Context
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.jpaya.core.database.characterfavorite.CharacterFavoriteDao
 import com.jpaya.core.di.modules.ContextModule
@@ -86,4 +87,11 @@ interface CoreComponent {
      * @return FirebaseFirestore
      */
     fun firebaseFirestore(): FirebaseFirestore
+
+    /**
+     * Provide dependency graph FirebaseAuth
+     *
+     * @return FirebaseAuth
+     */
+    fun firebaseAuth(): FirebaseAuth
 }

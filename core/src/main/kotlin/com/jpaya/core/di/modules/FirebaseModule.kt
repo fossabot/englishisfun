@@ -16,6 +16,7 @@
 
 package com.jpaya.core.di.modules
 
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.jpaya.core.di.CoreComponent
@@ -40,4 +41,14 @@ class FirebaseModule {
     @Singleton
     @Provides
     fun provideFirebaseFirestore() = Firebase.firestore
+
+    /**
+     * Create a provider method binding for [FirebaseAuth].
+     *
+     * @return Instance of FirebaseAuth.
+     * @see Provides
+     */
+    @Singleton
+    @Provides
+    fun provideFirebaseAuth() = FirebaseAuth.getInstance()
 }

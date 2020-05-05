@@ -14,12 +14,13 @@
  * limitations under the License.
  */
 
-import dependencies.Dependencies
+package com.jpaya.englishisfun
 
-plugins {
-    id("commons.android-dynamic-feature")
-}
+import androidx.appcompat.app.AppCompatActivity
 
-dependencies {
-    implementation(Dependencies.FIREBASE_AUTH)
-}
+/**
+ * Base activity class that use the support library action bar features.
+ *
+ * @see AppCompatActivity
+ */
+class NavHostActivity : AppCompatActivity(R.layout.activity_main)

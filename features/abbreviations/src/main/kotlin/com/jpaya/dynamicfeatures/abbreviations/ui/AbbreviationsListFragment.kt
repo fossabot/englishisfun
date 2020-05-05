@@ -29,7 +29,7 @@ import com.jpaya.dynamicfeatures.abbreviations.ui.adapter.AbbreviationsListAdapt
 import com.jpaya.dynamicfeatures.abbreviations.ui.di.AbbreviationsModule
 import com.jpaya.dynamicfeatures.abbreviations.ui.di.DaggerAbbreviationsComponent
 import com.jpaya.dynamicfeatures.abbreviations.ui.model.AbbreviationItem
-import com.jpaya.englishisfun.SampleApp.Companion.coreComponent
+import com.jpaya.englishisfun.EnglishIsFunApp.Companion.coreComponent
 import javax.inject.Inject
 
 /**
@@ -76,7 +76,7 @@ class AbbreviationsListFragment :
      */
     override fun onInitDataBinding() {
         viewBinding.viewModel = viewModel
-        view!!.findViewById<RecyclerView>(R.id.abbreviations_list).apply {
+        requireView().findViewById<RecyclerView>(R.id.abbreviations_list).apply {
             adapter = viewAdapter
         }
     }

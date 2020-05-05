@@ -16,9 +16,9 @@
 
 package com.jpaya.englishisfun.di
 
-import com.jpaya.englishisfun.SampleApp
 import com.jpaya.core.di.CoreComponent
 import com.jpaya.core.di.scopes.AppScope
+import com.jpaya.englishisfun.EnglishIsFunApp
 import dagger.Component
 
 /**
@@ -38,5 +38,5 @@ interface AppComponent {
      *
      * @param application The sample application.
      */
-    fun inject(application: SampleApp)
+    fun inject(application: EnglishIsFunApp)
 }

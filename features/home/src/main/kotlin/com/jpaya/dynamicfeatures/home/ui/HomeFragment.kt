@@ -30,19 +30,19 @@ import com.jpaya.dynamicfeatures.home.databinding.FragmentHomeBinding
 import com.jpaya.dynamicfeatures.home.ui.di.DaggerHomeComponent
 import com.jpaya.dynamicfeatures.home.ui.di.HomeModule
 import com.jpaya.dynamicfeatures.home.ui.menu.ToggleThemeCheckBox
-import com.jpaya.englishisfun.SampleApp
+import com.jpaya.englishisfun.EnglishIsFunApp
 import javax.inject.Inject
-
-private const val DELAY_TO_APPLY_THEME = 1000L
 
 /**
  * Home principal view containing bottom navigation bar with different characters tabs.
  *
  * @see BaseFragment
  */
-class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
-    layoutId = R.layout.fragment_home
-) {
+class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(layoutId = R.layout.fragment_home) {
+
+    companion object {
+        private const val DELAY_TO_APPLY_THEME = 1000L
+    }
 
     @Inject
     lateinit var themeUtils: ThemeUtils
@@ -67,6 +67,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
         if (savedInstanceState == null) {
             setupBottomNavigationBar()
         }
+        viewModel.authenticate(requireCompatActivity())
     }
 
     /**
@@ -109,7 +110,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
     override fun onInitDependencyInjection() {
         DaggerHomeComponent
             .builder()
-            .coreComponent(SampleApp.coreComponent(requireContext()))
+            .coreComponent(EnglishIsFunApp.coreComponent(requireContext()))
             .homeModule(HomeModule(this))
             .build()
             .inject(this)

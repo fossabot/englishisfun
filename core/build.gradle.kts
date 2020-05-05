@@ -60,7 +60,8 @@ dependencies {
             Dependencies.LOGGING,
             Dependencies.MOSHI,
             Dependencies.MOSHI_KTX,
-            Dependencies.FIREBASE_FIRESTORE
+            Dependencies.FIREBASE_FIRESTORE,
+            Dependencies.FIREBASE_AUTH
         )
     )
     kapt(

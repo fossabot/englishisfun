@@ -16,28 +16,35 @@
 
 package com.jpaya.dynamicfeatures.home.ui
 
+import android.app.Activity
+import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
+import com.google.firebase.auth.FirebaseAuth
 import com.jpaya.dynamicfeatures.home.R
-
-val NAV_FRAGMENTS_ID = setOf(
-    R.id.characters_list_fragment,
-    R.id.characters_favorites_fragment,
-    R.id.abbreviations_list_fragment
-)
+import javax.inject.Inject
 
 /**
  * View model responsible for preparing and managing the data for [HomeFragment].
  *
  * @see ViewModel
  */
-class HomeViewModel : ViewModel() {
+class HomeViewModel @Inject constructor(
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    val firebaseAuth: FirebaseAuth
+) : ViewModel() {
 
     private val _state = MutableLiveData<HomeViewState>()
     val state: LiveData<HomeViewState>
         get() = _state
+
+    private val navFragmentsIds = setOf(
+        R.id.characters_list_fragment,
+        R.id.characters_favorites_fragment,
+        R.id.abbreviations_list_fragment
+    )
 
     /**
      * Navigation controller add destination changed listener.
@@ -46,10 +53,24 @@ class HomeViewModel : ViewModel() {
      */
     fun navigationControllerChanged(navController: NavController) {
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (NAV_FRAGMENTS_ID.contains(destination.id)) {
+            if (navFragmentsIds.contains(destination.id)) {
                 _state.postValue(HomeViewState.NavigationScreen)
             } else {
                 _state.postValue(HomeViewState.FullScreen)
+            }
+        }
+    }
+
+    fun authenticate(activity: Activity) {
+        firebaseAuth.signInAnonymously().addOnCompleteListener(activity) { task ->
+            if (task.isSuccessful) {
+                // Sign in success, update UI showing the different application menus
+                _state.postValue(HomeViewState.NavigationScreen)
+            } else {
+                // If sign in fails, display a message to the user.
+                // Log.w(TAG, "signInAnonymously:failure", task.exception)
+                // Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT).show()
+                // updateUI(null)
             }
         }
     }

@@ -31,7 +31,7 @@ import com.jpaya.dynamicfeatures.characterslist.ui.list.adapter.CharactersListAd
 import com.jpaya.dynamicfeatures.characterslist.ui.list.di.CharactersListModule
 import com.jpaya.dynamicfeatures.characterslist.ui.list.di.DaggerCharactersListComponent
 import com.jpaya.dynamicfeatures.characterslist.ui.list.model.CharacterItem
-import com.jpaya.englishisfun.SampleApp.Companion.coreComponent
+import com.jpaya.englishisfun.EnglishIsFunApp.Companion.coreComponent
 import javax.inject.Inject
 
 /**

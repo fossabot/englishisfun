@@ -25,12 +25,12 @@ import com.jpaya.core.database.characterfavorite.CharacterFavoriteDao
 import com.jpaya.libraries.testutils.livedata.getValue
 import com.jpaya.libraries.testutils.robolectric.TestRobolectric
 import kotlinx.coroutines.runBlocking
+import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.hasItem
 import org.hamcrest.Matchers.not
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
-import org.junit.Assert.assertThat
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Rule

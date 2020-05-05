@@ -16,7 +16,7 @@
 
 package com.jpaya.dynamicfeatures.home.ui
 
-//class HomeViewStateTest {
+// class HomeViewStateTest {
 //
 //    lateinit var state: HomeViewState
 //
@@ -35,4 +35,4 @@ package com.jpaya.dynamicfeatures.home.ui
 //        assertTrue(state.isNavigationScreen())
 //        assertFalse(state.isFullScreen())
 //    }
-//}
+// }

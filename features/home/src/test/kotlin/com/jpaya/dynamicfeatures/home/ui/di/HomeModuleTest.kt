@@ -16,7 +16,7 @@
 
 package com.jpaya.dynamicfeatures.home.ui.di
 
-//class HomeModuleTest {
+// class HomeModuleTest {
 //
 //    @MockK
 //    lateinit var fragment: HomeFragment
@@ -52,4 +52,4 @@ package com.jpaya.dynamicfeatures.home.ui.di
 //
 //        assertThat(factoryCaptor.captured(), instanceOf(HomeViewModel::class.java))
 //    }
-//}
+// }

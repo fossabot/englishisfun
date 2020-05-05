@@ -22,9 +22,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.jpaya.libraries.testutils.TestFragment
 import com.jpaya.libraries.testutils.robolectric.TestRobolectric
+import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers
 import org.junit.Assert.assertEquals
-import org.junit.Assert.assertThat
 import org.junit.Test
 
 class FragmentExtensionsTest : TestRobolectric() {

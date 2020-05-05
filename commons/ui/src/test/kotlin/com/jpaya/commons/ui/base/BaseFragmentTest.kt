@@ -29,9 +29,9 @@ import com.nhaarman.mockitokotlin2.verify
 import com.jpaya.libraries.testutils.TestCompatActivity
 import com.jpaya.libraries.testutils.TestFragmentActivity
 import com.jpaya.libraries.testutils.robolectric.TestRobolectric
+import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.instanceOf
 import org.junit.Assert.assertNotNull
-import org.junit.Assert.assertThat
 import org.junit.Before
 import org.junit.Test
 import org.mockito.MockitoAnnotations

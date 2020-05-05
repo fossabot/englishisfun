@@ -42,9 +42,9 @@ jobs:
       - run:
           name: Generate Code Coverage
           command: ./gradlew jacocoTestReportDevDebug
-      - run:
-          name: Generate Dependency Updates
-          command: ./gradlew dependencyUpdates -Drevision=release
+#      - run:
+#          name: Generate Dependency Updates
+#          command: ./gradlew dependencyUpdates -Drevision=release
       - store_artifacts:
           path: build/dependencyUpdates
       - codecov/upload:

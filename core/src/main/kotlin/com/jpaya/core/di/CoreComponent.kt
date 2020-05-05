@@ -20,7 +20,11 @@ import android.content.Context
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.jpaya.core.database.characterfavorite.CharacterFavoriteDao
-import com.jpaya.core.di.modules.*
+import com.jpaya.core.di.modules.ContextModule
+import com.jpaya.core.di.modules.NetworkModule
+import com.jpaya.core.di.modules.DatabaseModule
+import com.jpaya.core.di.modules.UtilsModule
+import com.jpaya.core.di.modules.FirebaseModule
 import com.jpaya.core.network.repositiories.MarvelRepository
 import com.jpaya.core.network.services.MarvelService
 import com.jpaya.core.utils.ThemeUtils

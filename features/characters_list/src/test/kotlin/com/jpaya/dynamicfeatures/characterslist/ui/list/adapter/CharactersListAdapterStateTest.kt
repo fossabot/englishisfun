@@ -16,8 +16,8 @@
 
 package com.jpaya.dynamicfeatures.characterslist.ui.list.adapter
 
-import junit.framework.Assert.assertFalse
-import junit.framework.Assert.assertTrue
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class CharactersListAdapterStateTest {

@@ -1,13 +1,14 @@
 ## English Is Fun
-[![CircleCI](https://circleci.com/gh/jpaya17/englishisfun/tree/master.svg?style=shield)](https://circleci.com/gh/jpaya17/englishisfun/tree/master)
+![Android CI](https://github.com/jpaya17/englishisfun/workflows/Android%20CI/badge.svg)
+[![Kotlin Version](https://img.shields.io/badge/kotlin-1.3.72-blue.svg)](http://kotlinlang.org/)
+[![API](https://img.shields.io/badge/API-21%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=21)
+
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=jpaya17_englishisfun&metric=alert_status)](https://sonarcloud.io/dashboard?id=jpaya17_englishisfun)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=jpaya17_englishisfun&metric=coverage)](https://sonarcloud.io/dashboard?id=jpaya17_englishisfun)
 [![codecov](https://codecov.io/gh/jpaya17/englishisfun/branch/master/graph/badge.svg)](https://codecov.io/gh/jpaya17/englishisfun)
 [![Codacy](https://api.codacy.com/project/badge/Grade/c5eaf30c01da4cdeb3807a3bf3d98a70)](https://www.codacy.com/manual/jpaya17/englishisfun?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jpaya17/englishisfun&amp;utm_campaign=Badge_Grade)
 [![CodeFactor](https://www.codefactor.io/repository/github/jpaya17/englishisfun/badge)](https://www.codefactor.io/repository/github/jpaya17/englishisfun)
 [![CodeBeat](https://codebeat.co/badges/a21017bf-884a-41bf-8658-c0cfbb7c43fe)](https://codebeat.co/projects/github-com-jpaya17-englishisfun-master)
-[![Kotlin Version](https://img.shields.io/badge/kotlin-1.3.72-blue.svg)](http://kotlinlang.org/)
-[![API](https://img.shields.io/badge/API-21%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=21)
 
 <img src="screenshots/demo/demo.gif" width="250" align="right" hspace="20">
 

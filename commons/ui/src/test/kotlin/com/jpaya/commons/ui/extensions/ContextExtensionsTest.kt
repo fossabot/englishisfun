@@ -30,9 +30,7 @@ class ContextExtensionsTest {
     lateinit var context: Context
 
     @Before
-    fun setUp() {
-        MockKAnnotations.init(this)
-    }
+    fun setUp() = MockKAnnotations.init(this)
 
     @Test
     fun getString_WhenIdIsNonNull_ReturnResource() {

@@ -30,15 +30,12 @@ class ContextExtensionsTest {
     lateinit var context: Context
 
     @Before
-    fun setUp() {
-        MockKAnnotations.init(this)
-    }
+    fun setUp() = MockKAnnotations.init(this)
 
     @Test
     fun getString_WhenIdIsNonNull_ReturnResource() {
-        val resId = 0
+        val resId: Int? = 0
         val expectedString = "test"
-
         every { context.getString(any()) } returns expectedString
 
         assertEquals(expectedString, context.getString(resId))
@@ -46,7 +43,7 @@ class ContextExtensionsTest {
 
     @Test
     fun getString_WhenIdIsNull_ReturnEmpty() {
-        val resId = null
+        val resId: Int? = null
         val expectedString = ""
 
         assertEquals(expectedString, context.getString(resId))

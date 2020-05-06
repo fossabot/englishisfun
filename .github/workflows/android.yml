@@ -26,9 +26,10 @@ jobs:
       with:
         java-version: 1.8
     - name: Secrets
-      run: echo "signing.key.alias=$SIGNING_KEY_ALIAS" >> local.properties
-      run: echo "signing.key.password=$SIGNING_KEY_PASSWORD" >> local.properties
-      run: echo "signing.store.file=$SIGNING_STORE_FILE" >> local.properties
-      run: echo "signing.store.password=$SIGNING_STORE_PASSWORD" >> local.properties
+      run: |
+        echo "signing.key.alias=$SIGNING_KEY_ALIAS" >> local.properties
+        echo "signing.key.password=$SIGNING_KEY_PASSWORD" >> local.properties
+        echo "signing.store.file=$SIGNING_STORE_FILE" >> local.properties
+        echo "signing.store.password=$SIGNING_STORE_PASSWORD" >> local.properties
     - name: Detekt
       run: ./gradlew detekt

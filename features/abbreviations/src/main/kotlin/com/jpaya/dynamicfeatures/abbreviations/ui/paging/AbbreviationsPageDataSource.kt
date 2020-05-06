@@ -79,7 +79,8 @@ open class AbbreviationsPageDataSource @Inject constructor(
                 .get()
                 .await()
 
-            val result = mapper.map(list[fireStoreProperties.getAbbreviationListField()] as MutableList<HashMap<String, String>>)
+            val result =
+                mapper.map(list[fireStoreProperties.getAbbreviationListField()] as MutableList<HashMap<String, String>>)
             callback.onResult(result, null, null)
             networkState.postValue(
                 NetworkState.Success(isAdditional = false, isEmptyResponse = result.isEmpty())

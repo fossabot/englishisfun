@@ -97,3 +97,6 @@ jobs:
       with:
         name: Detekt
         path: libraries/test_utils/build/reports/detekt/test_utils.html
+
+    - name: Unit tests
+      run: ./gradlew testDevDebugUnitTest

@@ -21,9 +21,7 @@ import androidx.annotation.VisibleForTesting.PRIVATE
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.PageKeyedDataSource
 import com.google.firebase.firestore.FirebaseFirestore
-import com.jpaya.core.firebase.Realtime.COLLECTION_NAME
-import com.jpaya.core.firebase.Realtime.DOCUMENT_NAME
-import com.jpaya.core.firebase.Realtime.LIST_FIELD
+import com.jpaya.core.firebase.RealtimeProperties
 import com.jpaya.core.network.NetworkState
 import com.jpaya.dynamicfeatures.abbreviations.ui.model.AbbreviationItem
 import com.jpaya.dynamicfeatures.abbreviations.ui.model.AbbreviationItemMapper
@@ -51,6 +49,7 @@ open class AbbreviationsPageDataSource @Inject constructor(
 ) : PageKeyedDataSource<Int, AbbreviationItem>() {
 
     val networkState = MutableLiveData<NetworkState>()
+    val realtime = RealtimeProperties()
 
     @VisibleForTesting(otherwise = PRIVATE)
     var retry: (() -> Unit)? = null
@@ -74,12 +73,12 @@ open class AbbreviationsPageDataSource @Inject constructor(
             networkState.postValue(NetworkState.Error())
         }) {
             val list = firestore
-                .collection(COLLECTION_NAME)
-                .document(DOCUMENT_NAME)
+                .collection(realtime.getAbbreviationCollectionName())
+                .document(realtime.getAbbreviationDocumentName())
                 .get()
                 .await()
 
-            val result = mapper.map(list[LIST_FIELD] as MutableList<HashMap<String, String>>)
+            val result = mapper.map(list[realtime.getAbbreviationListField()] as MutableList<HashMap<String, String>>)
             callback.onResult(result, null, null)
             networkState.postValue(
                 NetworkState.Success(isAdditional = false, isEmptyResponse = result.isEmpty())

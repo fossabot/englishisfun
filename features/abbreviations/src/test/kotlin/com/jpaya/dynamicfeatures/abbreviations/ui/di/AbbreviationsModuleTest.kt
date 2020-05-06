@@ -20,6 +20,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.firestore.FirebaseFirestore
 import com.jpaya.commons.ui.extensions.viewModel
+import com.jpaya.core.firebase.FireStoreProperties
 import com.jpaya.dynamicfeatures.abbreviations.ui.AbbreviationsListFragment
 import com.jpaya.dynamicfeatures.abbreviations.ui.AbbreviationsListViewModel
 import com.jpaya.dynamicfeatures.abbreviations.ui.model.AbbreviationItemMapper
@@ -69,7 +70,8 @@ class AbbreviationsModuleTest {
 
     @Test
     fun verifyProvidedCharactersPageDataSource() {
-        val firestore = mockk<FirebaseFirestore>(relaxed = true)
+        val fireStore = mockk<FirebaseFirestore>(relaxed = true)
+        val fireStoreProperties = mockk<FireStoreProperties>(relaxed = true)
         val mapper = mockk<AbbreviationItemMapper>(relaxed = true)
         val viewModel = mockk<AbbreviationsListViewModel>(relaxed = true)
         val scope = mockk<CoroutineScope>()
@@ -77,12 +79,14 @@ class AbbreviationsModuleTest {
 
         module = AbbreviationsModule(fragment)
         val dataSource = module.providesAbbreviationsPageDataSource(
+            fireStore = fireStore,
+            fireStoreProperties = fireStoreProperties,
             viewModel = viewModel,
-            firestore = firestore,
             mapper = mapper
         )
 
-        assertEquals(firestore, dataSource.fireStore)
+        assertEquals(fireStore, dataSource.fireStore)
+        assertEquals(fireStoreProperties, dataSource.fireStoreProperties)
         assertEquals(mapper, dataSource.mapper)
         assertEquals(scope, dataSource.scope)
     }

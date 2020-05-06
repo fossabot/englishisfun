@@ -16,15 +16,25 @@
 
 package com.jpaya.core.firebase
 
-/**
- * Object that contains all FirebaseRealtime-related constants such as:
- *
- * - Collection names
- * - Document names
- * - Field names
- */
-object Realtime {
-    const val COLLECTION_NAME = "abbreviation"
-    const val DOCUMENT_NAME = "list"
-    const val LIST_FIELD = "abbreviations"
+import org.junit.Assert.assertEquals
+import org.junit.Test
+
+class FireStorePropertiesTest {
+
+    private val fireStoreProperties = FireStoreProperties()
+
+    @Test
+    fun verifyAbbreviationCollectionName() {
+        assertEquals(fireStoreProperties.getAbbreviationCollectionName(), "abbreviation")
+    }
+
+    @Test
+    fun verifyAbbreviationDocumentName() {
+        assertEquals(fireStoreProperties.getAbbreviationDocumentName(), "list")
+    }
+
+    @Test
+    fun verifyAbbreviationListField() {
+        assertEquals(fireStoreProperties.getAbbreviationListField(), "abbreviations")
+    }
 }

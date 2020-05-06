@@ -22,6 +22,7 @@ import androidx.lifecycle.viewModelScope
 import com.google.firebase.firestore.FirebaseFirestore
 import com.jpaya.commons.ui.extensions.viewModel
 import com.jpaya.core.di.scopes.FeatureScope
+import com.jpaya.core.firebase.FireStoreProperties
 import com.jpaya.dynamicfeatures.abbreviations.ui.AbbreviationsListFragment
 import com.jpaya.dynamicfeatures.abbreviations.ui.AbbreviationsListViewModel
 import com.jpaya.dynamicfeatures.abbreviations.ui.adapter.AbbreviationsListAdapter
@@ -65,11 +66,13 @@ class AbbreviationsModule(
      */
     @Provides
     fun providesAbbreviationsPageDataSource(
+        fireStore: FirebaseFirestore,
+        fireStoreProperties: FireStoreProperties,
         viewModel: AbbreviationsListViewModel,
-        firestore: FirebaseFirestore,
         mapper: AbbreviationItemMapper
     ) = AbbreviationsPageDataSource(
-        firestore = firestore,
+        fireStore = fireStore,
+        fireStoreProperties = fireStoreProperties,
         scope = viewModel.viewModelScope,
         mapper = mapper
     )

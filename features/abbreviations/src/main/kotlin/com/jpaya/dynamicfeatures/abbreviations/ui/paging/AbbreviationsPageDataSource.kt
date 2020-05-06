@@ -21,7 +21,7 @@ import androidx.annotation.VisibleForTesting.PRIVATE
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.PageKeyedDataSource
 import com.google.firebase.firestore.FirebaseFirestore
-import com.jpaya.core.firebase.RealtimeProperties
+import com.jpaya.core.firebase.FireStoreProperties
 import com.jpaya.core.network.NetworkState
 import com.jpaya.dynamicfeatures.abbreviations.ui.model.AbbreviationItem
 import com.jpaya.dynamicfeatures.abbreviations.ui.model.AbbreviationItemMapper
@@ -41,7 +41,9 @@ const val PAGE_MAX_ELEMENTS = 50
  */
 open class AbbreviationsPageDataSource @Inject constructor(
     @VisibleForTesting(otherwise = PRIVATE)
-    val firestore: FirebaseFirestore,
+    val fireStore: FirebaseFirestore,
+    @VisibleForTesting(otherwise = PRIVATE)
+    val fireStoreProperties: FireStoreProperties,
     @VisibleForTesting(otherwise = PRIVATE)
     val scope: CoroutineScope,
     @VisibleForTesting(otherwise = PRIVATE)
@@ -49,7 +51,6 @@ open class AbbreviationsPageDataSource @Inject constructor(
 ) : PageKeyedDataSource<Int, AbbreviationItem>() {
 
     val networkState = MutableLiveData<NetworkState>()
-    val realtime = RealtimeProperties()
 
     @VisibleForTesting(otherwise = PRIVATE)
     var retry: (() -> Unit)? = null
@@ -72,13 +73,13 @@ open class AbbreviationsPageDataSource @Inject constructor(
             }
             networkState.postValue(NetworkState.Error())
         }) {
-            val list = firestore
-                .collection(realtime.getAbbreviationCollectionName())
-                .document(realtime.getAbbreviationDocumentName())
+            val list = fireStore
+                .collection(fireStoreProperties.getAbbreviationCollectionName())
+                .document(fireStoreProperties.getAbbreviationDocumentName())
                 .get()
                 .await()
 
-            val result = mapper.map(list[realtime.getAbbreviationListField()] as MutableList<HashMap<String, String>>)
+            val result = mapper.map(list[fireStoreProperties.getAbbreviationListField()] as MutableList<HashMap<String, String>>)
             callback.onResult(result, null, null)
             networkState.postValue(
                 NetworkState.Success(isAdditional = false, isEmptyResponse = result.isEmpty())

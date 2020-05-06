@@ -82,7 +82,7 @@ class AbbreviationsModuleTest {
             mapper = mapper
         )
 
-        assertEquals(firestore, dataSource.firestore)
+        assertEquals(firestore, dataSource.fireStore)
         assertEquals(mapper, dataSource.mapper)
         assertEquals(scope, dataSource.scope)
     }

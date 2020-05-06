@@ -25,6 +25,7 @@ import com.jpaya.core.di.modules.NetworkModule
 import com.jpaya.core.di.modules.DatabaseModule
 import com.jpaya.core.di.modules.UtilsModule
 import com.jpaya.core.di.modules.FirebaseModule
+import com.jpaya.core.firebase.FireStoreProperties
 import com.jpaya.core.network.repositiories.MarvelRepository
 import com.jpaya.core.network.services.MarvelService
 import com.jpaya.core.utils.ThemeUtils
@@ -94,4 +95,11 @@ interface CoreComponent {
      * @return FirebaseAuth
      */
     fun firebaseAuth(): FirebaseAuth
+
+    /**
+     * Provide dependency graph FireStoreProperties
+     *
+     * @return FireStoreProperties
+     */
+    fun fireStoreProperties(): FireStoreProperties
 }

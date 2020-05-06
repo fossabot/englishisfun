@@ -20,6 +20,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.jpaya.core.di.CoreComponent
+import com.jpaya.core.firebase.FireStoreProperties
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -40,7 +41,7 @@ class FirebaseModule {
      */
     @Singleton
     @Provides
-    fun provideFirebaseFirestore() = Firebase.firestore
+    fun provideFirebaseFireStore() = Firebase.firestore
 
     /**
      * Create a provider method binding for [FirebaseAuth].
@@ -51,4 +52,14 @@ class FirebaseModule {
     @Singleton
     @Provides
     fun provideFirebaseAuth() = FirebaseAuth.getInstance()
+
+    /**
+     * Create a provider method binding for [FireStoreProperties].
+     *
+     * @return Instance of FireStoreProperties.
+     * @see Provides
+     */
+    @Singleton
+    @Provides
+    fun provideFireStoreProperties() = FireStoreProperties()
 }

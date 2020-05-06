@@ -16,24 +16,25 @@
 
 package com.jpaya.core.firebase
 
-/**
- * Object that contains all FirebaseRealtime-related properties such as:
- *
- * - Collection names
- * - Document names
- * - Field names
- */
-class RealtimeProperties {
+import org.junit.Assert.assertEquals
+import org.junit.Test
 
-    companion object {
-        private const val COLLECTION_NAME = "abbreviation"
-        private const val DOCUMENT_NAME = "list"
-        private const val LIST_FIELD = "abbreviations"
+class FireStorePropertiesTest {
+
+    private val fireStoreProperties = FireStoreProperties()
+
+    @Test
+    fun verifyAbbreviationCollectionName() {
+        assertEquals(fireStoreProperties.getAbbreviationCollectionName(), "abbreviation")
     }
 
-    fun getAbbreviationCollectionName() = COLLECTION_NAME
+    @Test
+    fun verifyAbbreviationDocumentName() {
+        assertEquals(fireStoreProperties.getAbbreviationDocumentName(), "list")
+    }
 
-    fun getAbbreviationDocumentName() = DOCUMENT_NAME
-
-    fun getAbbreviationListField() = LIST_FIELD
+    @Test
+    fun verifyAbbreviationListField() {
+        assertEquals(fireStoreProperties.getAbbreviationListField(), "abbreviations")
+    }
 }

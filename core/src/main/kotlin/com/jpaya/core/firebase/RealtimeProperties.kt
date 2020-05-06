@@ -25,9 +25,15 @@ package com.jpaya.core.firebase
  */
 class RealtimeProperties {
 
-    fun getAbbreviationCollectionName() = "abbreviation"
+    companion object {
+        private const val COLLECTION_NAME = "abbreviation"
+        private const val DOCUMENT_NAME = "list"
+        private const val LIST_FIELD = "abbreviations"
+    }
 
-    fun getAbbreviationDocumentName() = "list"
+    fun getAbbreviationCollectionName() = COLLECTION_NAME
 
-    fun getAbbreviationListField() = "abbreviations"
+    fun getAbbreviationDocumentName() = DOCUMENT_NAME
+
+    fun getAbbreviationListField() = LIST_FIELD
 }

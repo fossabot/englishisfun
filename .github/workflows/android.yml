@@ -42,3 +42,8 @@ jobs:
 
     - name: Detekt
       run: ./gradlew detekt
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: Detekt
+        path: app/build/reports/detekt/detekt.html

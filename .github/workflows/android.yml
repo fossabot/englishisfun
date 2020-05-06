@@ -41,9 +41,21 @@ jobs:
         echo $GOOGLE_SERVICES_JSON | base64 -di > app/google-services.json
 
     - name: Detekt
-      run: ./gradlew detekt
+      run: |
+        ./gradlew detekt
+        cp app/build/reports/detekt/report.html app/build/reports/detekt/app.html
+        cp commons/ui/build/reports/detekt/report.html commons/ui/build/reports/detekt/commons_ui.html
+        cp commons/views/build/reports/detekt/report.html commons/views/build/reports/detekt/commons_views.html
+        cp core/build/reports/detekt/report.html core/build/reports/detekt/core.html
+        cp features/abbreviations/build/reports/detekt/report.html features/abbreviations/build/reports/detekt/abbreviations.html
+        cp features/characters_favorites/build/reports/detekt/report.html features/characters_favorites/build/reports/detekt/characters_favorites.html
+        cp features/characters_list/build/reports/detekt/report.html features/characters_list/build/reports/detekt/characters_list.html
+        cp features/home/build/reports/detekt/report.html features/home/build/reports/detekt/home.html
+        cp libraries/test_utils/build/reports/detekt/report.html libraries/test_utils/build/reports/detekt/test_utils.html
 
     - uses: actions/upload-artifact@v2
       with:
         name: Detekt
-        path: app/build/reports/detekt/report.html
+        path: |
+          app/build/reports/detekt/app.html
+          commons/ui/build/reports/detekt/commons_ui.html

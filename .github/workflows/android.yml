@@ -5,6 +5,11 @@ on:
     branches:
     - master
     - setup/*
+    - polish/*
+    - visual/*
+    - feature/*
+    - documentation/*
+    - testing/*
   pull_request:
     branches:
     - master

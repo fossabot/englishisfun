@@ -2,7 +2,7 @@ name: Dependency Checks
 
 on:
   schedule:
-    - cron: '12 45 * * *'
+    - cron: '50 12 * * *'
 
 jobs:
 

@@ -29,6 +29,7 @@ jobs:
       SIGNING_STORE_FILE: ${{ secrets.SIGNING_STORE_FILE }}
       SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
       GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
+      KEYSTORE: ${{ secrets.KEYSTORE }}
 #    needs: unitTest
     steps:
       - uses: actions/checkout@v2
@@ -51,6 +52,7 @@ jobs:
           echo "signing.store.file=$SIGNING_STORE_FILE" >> local.properties
           echo "signing.store.password=$SIGNING_STORE_PASSWORD" >> local.properties
           echo $GOOGLE_SERVICES_JSON | base64 -di > app/google-services.json
+          echo $KEYSTORE | base64 -di > app/keystore.jks
       - name: Build .APK
         run: bash ./gradlew :app:assembleProdRelease
 #      - name: Sign Android release
@@ -61,11 +63,11 @@ jobs:
 #          alias: ${{ secrets.ALIAS }}
 #          keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
 #          keyPassword: ${{ secrets.KEY_PASSWORD }}
-#      - name: Upload app APK
-#        uses: actions/upload-artifact@v1
-#        with:
-#          name: app-release
-#          path: ${{ env.SIGNED_RELEASE_FILE }}
+      - name: Upload app APK
+        uses: actions/upload-artifact@v1
+        with:
+          name: app-release
+          path: app/build/outputs/apk/release/app-release.apk
 
 #  uploadAPK:
 #    name: Upload APK to Google Play

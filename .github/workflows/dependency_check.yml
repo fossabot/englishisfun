@@ -2,9 +2,10 @@ name: Dependency Checks
 
 on:
   schedule:
-    - cron:  '12 40 * * *'
+    - cron: '12 45 * * *'
 
 jobs:
+
   checkDependencies:
     name: Check dependency versions
     runs-on: ubuntu-latest

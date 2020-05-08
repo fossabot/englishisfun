@@ -36,12 +36,12 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - name: Update release version
-        run: |
-          latest_release="$(git describe --match '[0-9]*\.[0-9]*\.[0-9]*' --abbrev=0 --tags)"
-          change_to="versionName "\"$latest_release"\""
-          sed -i "0,/versionName/{s/.*versionName.*/$change_to/}"
-          app/build.gradle.kts
+#      - name: Update release version
+#        run: |
+#          latest_release="$(git describe --match '[0-9]*\.[0-9]*\.[0-9]*' --abbrev=0 --tags)"
+#          change_to="versionName "\"$latest_release"\""
+#          sed -i "0,/versionName/{s/.*versionName.*/$change_to/}"
+#          app/build.gradle.kts
       - name: Add secrets
         run: |
           echo "marvel.key.public=$MARVEL_KEY_PUBLIC" >> local.properties

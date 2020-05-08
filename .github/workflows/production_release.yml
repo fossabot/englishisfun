@@ -3,6 +3,7 @@ name: Production Release
 on:
   push:
     branches:
+      - feature/*
       - setup/*
     #tags:
     # - '[0-9]+.[0-9]+.[0-9]+'

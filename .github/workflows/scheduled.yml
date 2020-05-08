@@ -2,7 +2,7 @@ name: Nightly tasks
 
 on:
   schedule:
-    - cron:  '0 0 * * *'
+    - cron:  '2 13 * * *'
 
 jobs:
   build:

@@ -86,5 +86,4 @@ jobs:
           packageName: com.jpaya.englishisfun
           releaseFile: app-release/app-prod-release.apk
           track: internal
-          userFraction: 1.0
           whatsNewDirectory: whatsnew

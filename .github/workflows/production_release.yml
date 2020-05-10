@@ -55,14 +55,6 @@ jobs:
           echo $KEYSTORE | base64 -di > app/keystore.jks
       - name: Build .APK
         run: bash ./gradlew :app:assembleProdRelease
-#      - name: Sign Android release
-#        uses: r0adkll/sign-android-release@v1
-#        with:
-#          releaseDirectory: app/build/outputs/apk/googlePlay/release
-#          signingKeyBase64: ${{ secrets.SIGNING_KEY }}
-#          alias: ${{ secrets.ALIAS }}
-#          keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
-#          keyPassword: ${{ secrets.KEY_PASSWORD }}
       - name: Upload APK artifact
         uses: actions/upload-artifact@v1
         with:

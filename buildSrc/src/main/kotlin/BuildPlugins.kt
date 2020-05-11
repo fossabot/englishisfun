@@ -16,6 +16,7 @@ object BuildPlugins {
     const val GRAPH_GENERATOR = "com.vanniktech.dependency.graph.generator"
 
     const val GOOGLE_SERVICES = "com.google.gms.google-services"
+    const val FIREBASE_CRASHLYTICS = "com.google.firebase.crashlytics"
 
     const val DETEKT = "plugins.detekt"
     const val DOKKA = "plugins.dokka"

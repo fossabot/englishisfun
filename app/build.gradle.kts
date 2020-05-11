@@ -27,6 +27,7 @@ plugins {
     id(BuildPlugins.JACOCO)
     id(BuildPlugins.GRAPH_GENERATOR)
     id(BuildPlugins.GOOGLE_SERVICES)
+    id(BuildPlugins.FIREBASE_CRASHLYTICS)
 }
 
 allOpen {
@@ -152,6 +153,7 @@ dependencies {
             Dependencies.PLAY_CORE,
             Dependencies.DAGGER,
             Dependencies.FIREBASE_ANALYTICS,
+            Dependencies.FIREBASE_CRASHLYTICS,
             Dependencies.FIREBASE_FIRESTORE,
             Dependencies.FIREBASE_AUTH
         )

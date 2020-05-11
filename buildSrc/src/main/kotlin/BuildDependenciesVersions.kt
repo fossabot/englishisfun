@@ -26,6 +26,7 @@ object BuildDependenciesVersions {
     const val DATABINDING = "3.1.4"
     const val AUTO_SERVICE = "1.0-rc4"
     const val FIREBASE_ANALYTICS = "17.4.0"
+    const val FIREBASE_CRASHLYTICS = "17.0.0"
     const val FIREBASE_FIRESTORE = "21.4.3"
     const val FIREBASE_AUTH = "19.3.1"
     const val COROUTINES_PLAY_SERVICES = "1.3.5"

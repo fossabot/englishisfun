@@ -32,6 +32,7 @@ object Dependencies {
     const val COIL = "io.coil-kt:coil:${BuildDependenciesVersions.COIL}"
     const val PLAY_CORE = "com.google.android.play:core:${BuildDependenciesVersions.PLAY_CORE}"
     const val FIREBASE_ANALYTICS = "com.google.firebase:firebase-analytics-ktx:${BuildDependenciesVersions.FIREBASE_ANALYTICS}"
+    const val FIREBASE_CRASHLYTICS = "com.google.firebase:firebase-crashlytics:${BuildDependenciesVersions.FIREBASE_CRASHLYTICS}"
     const val FIREBASE_FIRESTORE = "com.google.firebase:firebase-firestore-ktx:${BuildDependenciesVersions.FIREBASE_FIRESTORE}"
     const val FIREBASE_AUTH = "com.google.firebase:firebase-auth:${BuildDependenciesVersions.FIREBASE_AUTH}"
     const val COROUTINES_PLAY_SERVICES = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:${BuildDependenciesVersions.COROUTINES_PLAY_SERVICES}"

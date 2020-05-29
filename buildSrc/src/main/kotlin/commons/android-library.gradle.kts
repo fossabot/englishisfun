@@ -17,18 +17,19 @@
 package commons
 
 import BuildAndroidConfig
+import BuildModules
 import BuildProductDimensions
 import ProductFlavorDevelop
 import ProductFlavorProduction
 import ProductFlavorQA
-import dependencies.Dependencies
 import dependencies.AnnotationProcessorsDependencies
+import dependencies.Dependencies
 import dependencies.TestAndroidDependencies
 import dependencies.TestDependencies
 import extensions.androidTestImplementation
 import extensions.implementation
-import extensions.testImplementation
 import extensions.kapt
+import extensions.testImplementation
 
 plugins {
     id("com.android.library")
@@ -55,10 +56,6 @@ android {
 
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
-    }
-
-    dataBinding {
-        isEnabled = true
     }
 
     androidExtensions {

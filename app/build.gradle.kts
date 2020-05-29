@@ -91,10 +91,6 @@ android {
         BuildModules.Features.ABBREVIATIONS
     )
 
-    dataBinding {
-        isEnabled = true
-    }
-
     androidExtensions {
         isExperimental = true
     }

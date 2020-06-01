@@ -39,7 +39,7 @@ object BuildDependenciesVersions {
     const val JUNIT = "4.13"
     const val MOCKITO = "2.2.0"
     const val MOCKK = "1.10.0"
-    const val MOCK_WEB_SERVER = "4.6.0"
+    const val MOCK_WEB_SERVER = "4.7.2"
     const val ROBOELECTRIC = "4.3.1"
     const val TEST = "1.2.0"
 }

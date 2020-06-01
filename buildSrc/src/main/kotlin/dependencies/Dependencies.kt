@@ -10,7 +10,7 @@ object Dependencies {
     const val CORE_KTX = "androidx.core:core-ktx:${BuildDependenciesVersions.CORE_KTX}"
     const val COROUTINES = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${BuildDependenciesVersions.COROUTINES}"
     const val COROUTINES_ANDROID = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${BuildDependenciesVersions.COROUTINES}"
-    const val COROUTINES_PLAY_SERVICES = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:${BuildDependenciesVersions.COROUTINES_PLAY_SERVICES}"
+    const val COROUTINES_PLAY_SERVICES = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:${BuildDependenciesVersions.COROUTINES}"
     const val DAGGER = "com.google.dagger:dagger:${BuildDependenciesVersions.DAGGER}"
     const val FIREBASE_ANALYTICS = "com.google.firebase:firebase-analytics-ktx:${BuildDependenciesVersions.FIREBASE_ANALYTICS}"
     const val FIREBASE_AUTH = "com.google.firebase:firebase-auth:${BuildDependenciesVersions.FIREBASE_AUTH}"

@@ -4,15 +4,7 @@ on:
   push:
     branches:
     - master
-    - setup/*
-    - polish/*
-    - visual/*
-    - feature/*
-    - documentation/*
-    - testing/*
   pull_request:
-    branches:
-    - master
 
 jobs:
   build:
@@ -26,7 +18,7 @@ jobs:
       SIGNING_STORE_FILE: ${{ secrets.SIGNING_STORE_FILE }}
       SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
       GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
-      
+
     steps:
     - uses: actions/checkout@v2
 
@@ -70,7 +62,7 @@ jobs:
       with:
         name: Detekt
         path: app/build/reports/detekt/app.html
-    
+
     - uses: actions/upload-artifact@v2
       with:
         name: Detekt

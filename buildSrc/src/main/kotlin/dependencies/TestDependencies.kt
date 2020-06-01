@@ -1,8 +1,7 @@
 package dependencies
 
 /**
- * Project test dependencies, makes it easy to include external binaries or
- * other library modules to build.
+ * Project test dependencies, makes it easy to include external binaries or other library modules to build.
  */
 object TestDependencies {
     const val ARCH_CORE = "androidx.arch.core:core-testing:${BuildDependenciesVersions.ARCH_CORE}"

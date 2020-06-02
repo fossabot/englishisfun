@@ -164,7 +164,8 @@ dependencies {
             Dependencies.FIREBASE_AUTH,
             Dependencies.FIREBASE_PERFORMANCE,
             Dependencies.COMPOSE_MATERIAL,
-            Dependencies.COMPOSE_RUNTIME
+            Dependencies.COMPOSE_RUNTIME,
+            Dependencies.COMPOSE_TOOLING
         )
     )
     debugImplementation(DebugDependencies.LEAKCANARY)

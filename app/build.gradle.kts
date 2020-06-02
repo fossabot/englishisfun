@@ -28,6 +28,7 @@ plugins {
     id(BuildPlugins.GRAPH_GENERATOR)
     id(BuildPlugins.GOOGLE_SERVICES)
     id(BuildPlugins.FIREBASE_CRASHLYTICS)
+    id(BuildPlugins.FIREBASE_PERFORMANCE)
 }
 
 allOpen {
@@ -151,7 +152,8 @@ dependencies {
             Dependencies.FIREBASE_ANALYTICS,
             Dependencies.FIREBASE_CRASHLYTICS,
             Dependencies.FIREBASE_FIRESTORE,
-            Dependencies.FIREBASE_AUTH
+            Dependencies.FIREBASE_AUTH,
+            Dependencies.FIREBASE_PERFORMANCE
         )
     )
     debugImplementation(DebugDependencies.LEAKCANARY)

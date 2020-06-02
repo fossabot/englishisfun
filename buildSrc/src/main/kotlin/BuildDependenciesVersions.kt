@@ -14,6 +14,7 @@ object BuildDependenciesVersions {
     const val FIREBASE_AUTH = "19.3.1"
     const val FIREBASE_CRASHLYTICS = "17.0.0"
     const val FIREBASE_FIRESTORE = "21.4.3"
+    const val FIREBASE_PERFORMANCE = "19.0.7"
     const val FRAGMENT_KTX = "1.2.4"
     const val KOTLIN = "1.3.72"
     const val LEAKCANARY = "2.3"

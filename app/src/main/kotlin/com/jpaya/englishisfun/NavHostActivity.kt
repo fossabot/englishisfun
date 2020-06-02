@@ -43,7 +43,7 @@ class NavHostActivity : AppCompatActivity() {
 
 @Preview
 @Composable
-fun DefaultPreview() {
+fun defaultPreview() {
     MaterialTheme {
         Text(text = "Hello world!")
     }

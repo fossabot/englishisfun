@@ -16,11 +16,25 @@
 
 package com.jpaya.englishisfun
 
+import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.ui.core.setContent
+import androidx.ui.foundation.Text
+import androidx.ui.material.MaterialTheme
 
 /**
  * Base activity class that use the support library action bar features.
  *
  * @see AppCompatActivity
  */
-class NavHostActivity : AppCompatActivity(R.layout.activity_main)
+class NavHostActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            MaterialTheme {
+                Text(text = "Hello world!")
+            }
+        }
+    }
+}

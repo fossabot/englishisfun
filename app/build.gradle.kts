@@ -92,6 +92,15 @@ android {
         BuildModules.Features.ABBREVIATIONS
     )
 
+    buildFeatures {
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "0.1.0-dev12"
+        kotlinCompilerVersion = "1.3.70-dev-withExperimentalGoogleExtensions-20200424"
+    }
+
     androidExtensions {
         isExperimental = true
     }
@@ -153,7 +162,9 @@ dependencies {
             Dependencies.FIREBASE_CRASHLYTICS,
             Dependencies.FIREBASE_FIRESTORE,
             Dependencies.FIREBASE_AUTH,
-            Dependencies.FIREBASE_PERFORMANCE
+            Dependencies.FIREBASE_PERFORMANCE,
+            Dependencies.COMPOSE_MATERIAL,
+            Dependencies.COMPOSE_RUNTIME
         )
     )
     debugImplementation(DebugDependencies.LEAKCANARY)

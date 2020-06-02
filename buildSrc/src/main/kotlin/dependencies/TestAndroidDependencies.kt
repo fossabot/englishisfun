@@ -4,6 +4,8 @@ package dependencies
  * Project Android test dependencies, makes it easy to include external binaries or other library modules to build.
  */
 object TestAndroidDependencies {
+    const val COMPOSE_CORE = "androidx.ui:ui-core:${BuildDependenciesVersions.COMPOSE}"
+    const val COMPOSE_TEST = "androidx.ui:ui-test:${BuildDependenciesVersions.COMPOSE}"
     const val ESPRESSO = "androidx.test.espresso:espresso-core:${BuildDependenciesVersions.ESPRESSO}"
     const val FRAGMENT_TEST = "androidx.fragment:fragment-testing:${BuildDependenciesVersions.FRAGMENT_TEST}"
     const val JUNIT = "androidx.test.ext:junit:${BuildDependenciesVersions.EXT}"
@@ -19,6 +21,8 @@ object TestAndroidDependencies {
      * @return An array with all the Android test dependencies.
      */
     fun all() = arrayOf(
+        COMPOSE_CORE,
+        COMPOSE_TEST,
         ESPRESSO,
         FRAGMENT_TEST,
         JUNIT,

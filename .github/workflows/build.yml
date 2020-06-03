@@ -22,6 +22,7 @@ jobs:
       SONARCLOUD_PROJECT_KEY: ${{ secrets.SONARCLOUD_PROJECT_KEY }}
       SONARCLOUD_URL: ${{ secrets.SONARCLOUD_URL }}
       GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
+      GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
 
     steps:
     - uses: actions/checkout@v2

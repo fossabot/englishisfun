@@ -1,5 +1,5 @@
 ## English Is Fun
-![Android CI](https://github.com/jpaya17/englishisfun/workflows/Android%20CI/badge.svg)
+![CI](https://github.com/jpaya17/englishisfun/workflows/CI/badge.svg)
 [![Kotlin Version](https://img.shields.io/badge/kotlin-1.3.72-blue.svg)](http://kotlinlang.org/)
 [![API](https://img.shields.io/badge/API-21%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=21)
 

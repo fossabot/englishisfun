@@ -6,20 +6,19 @@ on:
       - '[0-9]+.[0-9]+.[0-9]+-RC[0-9]+'
 
 jobs:
-  env:
-    MARVEL_KEY_PUBLIC: ${{ secrets.MARVEL_KEY_PUBLIC }}
-    MARVEL_KEY_PRIVATE: ${{ secrets.MARVEL_KEY_PRIVATE }}
-    SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
-    SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
-    SIGNING_STORE_FILE: ${{ secrets.SIGNING_STORE_FILE }}
-    SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
-    GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
-    KEYSTORE: ${{ secrets.KEYSTORE }}
-    VERSION_CODE: ${{ secrets.VERSION_CODE }}
-
   unitTest:
     name: Run unit tests
     runs-on: ubuntu-latest
+    env:
+      MARVEL_KEY_PUBLIC: ${{ secrets.MARVEL_KEY_PUBLIC }}
+      MARVEL_KEY_PRIVATE: ${{ secrets.MARVEL_KEY_PRIVATE }}
+      SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
+      SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
+      SIGNING_STORE_FILE: ${{ secrets.SIGNING_STORE_FILE }}
+      SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
+      GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
+      KEYSTORE: ${{ secrets.KEYSTORE }}
+      VERSION_CODE: ${{ secrets.VERSION_CODE }}
     steps:
       - uses: actions/checkout@v2
       - name: Unit tests

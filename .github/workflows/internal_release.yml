@@ -36,6 +36,8 @@ jobs:
           latest_release="$(git describe --match '[0-9]*.[0-9]*.[0-9]*-RC[0-9]*' --abbrev=0 --tags)"
           version_name="\"$latest_release\""
           sed -i "s/BuildAndroidConfig.VERSION_NAME/$version_name/g" app/build.gradle.kts
+          commit_count="$(git rev-list --count HEAD)"
+          echo $commit_count
       - name: Add secrets
         run: |
           echo "marvel.key.public=$MARVEL_KEY_PUBLIC" >> local.properties

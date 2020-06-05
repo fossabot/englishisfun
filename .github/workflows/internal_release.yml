@@ -21,6 +21,16 @@ jobs:
       VERSION_CODE: ${{ secrets.VERSION_CODE }}
     steps:
       - uses: actions/checkout@v2
+      - name: Add secrets
+        run: |
+          echo "marvel.key.public=$MARVEL_KEY_PUBLIC" >> local.properties
+          echo "marvel.key.private=$MARVEL_KEY_PRIVATE" >> local.properties
+          echo "signing.key.alias=$SIGNING_KEY_ALIAS" >> local.properties
+          echo "signing.key.password=$SIGNING_KEY_PASSWORD" >> local.properties
+          echo "signing.store.file=$SIGNING_STORE_FILE" >> local.properties
+          echo "signing.store.password=$SIGNING_STORE_PASSWORD" >> local.properties
+          echo $GOOGLE_SERVICES_JSON | base64 -di > app/google-services.json
+          echo $KEYSTORE | base64 -di > app/keystore.jks
       - name: Unit tests
         run: bash ./gradlew testDevDebugUnitTest
 
@@ -40,16 +50,6 @@ jobs:
           version_name="\"$latest_release\""
           sed -i "s/BuildAndroidConfig.VERSION_NAME/$version_name/g" app/build.gradle.kts
           sed -i "s/BuildAndroidConfig.VERSION_CODE/$VERSION_CODE/g" app/build.gradle.kts
-      - name: Add secrets
-        run: |
-          echo "marvel.key.public=$MARVEL_KEY_PUBLIC" >> local.properties
-          echo "marvel.key.private=$MARVEL_KEY_PRIVATE" >> local.properties
-          echo "signing.key.alias=$SIGNING_KEY_ALIAS" >> local.properties
-          echo "signing.key.password=$SIGNING_KEY_PASSWORD" >> local.properties
-          echo "signing.store.file=$SIGNING_STORE_FILE" >> local.properties
-          echo "signing.store.password=$SIGNING_STORE_PASSWORD" >> local.properties
-          echo $GOOGLE_SERVICES_JSON | base64 -di > app/google-services.json
-          echo $KEYSTORE | base64 -di > app/keystore.jks
       - name: Build .APK
         run: bash ./gradlew :app:assembleProdRelease
       - name: Upload APK artifact

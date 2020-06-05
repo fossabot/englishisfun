@@ -24,6 +24,7 @@ jobs:
       SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
       GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
       KEYSTORE: ${{ secrets.KEYSTORE }}
+      VERSION_CODE: ${{ secrets.VERSION_CODE }}
 #    needs: unitTest
     steps:
       - uses: actions/checkout@v2
@@ -36,6 +37,7 @@ jobs:
           latest_release="$(git describe --match '[0-9]*.[0-9]*.[0-9]*-RC[0-9]*' --abbrev=0 --tags)"
           version_name="\"$latest_release\""
           sed -i "s/BuildAndroidConfig.VERSION_NAME/$version_name/g" app/build.gradle.kts
+          sed -i "s/BuildAndroidConfig.VERSION_CODE/$VERSION_CODE/g" app/build.gradle.kts
       - name: Add secrets
         run: |
           echo "marvel.key.public=$MARVEL_KEY_PUBLIC" >> local.properties

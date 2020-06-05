@@ -6,8 +6,8 @@ on:
       - '[0-9]+.[0-9]+.[0-9]+'
 
 jobs:
-  unitTest:
-    name: Run unit tests
+  release:
+    name: Validate and release
     runs-on: ubuntu-latest
     env:
       MARVEL_KEY_PUBLIC: ${{ secrets.MARVEL_KEY_PUBLIC }}
@@ -33,24 +33,13 @@ jobs:
           echo $KEYSTORE | base64 -di > app/keystore.jks
       - name: Unit tests
         run: bash ./gradlew testDevDebugUnitTest
-
-  buildAPK:
-    name: Build Signed APK
-    runs-on: ubuntu-latest
-    needs: unitTest
-    steps:
-      - uses: actions/checkout@v2
-      - name: set up JDK 1.8
-        uses: actions/setup-java@v1
-        with:
-          java-version: 1.8
       - name: Update release version
         run: |
           latest_release="$(git describe --match '[0-9]*.[0-9]*.[0-9]*' --abbrev=0 --tags)"
           version_name="\"$latest_release\""
           sed -i "s/BuildAndroidConfig.VERSION_NAME/$version_name/g" app/build.gradle.kts
           sed -i "s/BuildAndroidConfig.VERSION_CODE/$VERSION_CODE/g" app/build.gradle.kts
-      - name: Build .APK
+      - name: Build Build Signed APK
         run: bash ./gradlew :app:assembleProdRelease
       - name: Upload APK artifact
         uses: actions/upload-artifact@v1
@@ -61,7 +50,7 @@ jobs:
   uploadAPK:
     name: Upload APK to Google Play
     runs-on: ubuntu-latest
-    needs: buildAPK
+    needs: release
     steps:
       - uses: actions/checkout@v2
       - name: Download app APK

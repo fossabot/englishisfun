@@ -34,7 +34,7 @@ import com.jpaya.englishisfun.EnglishIsFunApp
 import javax.inject.Inject
 
 /**
- * Home principal view containing bottom navigation bar with different characters tabs.
+ * Home principal view containing bottom navigation bar with different tabs.
  *
  * @see BaseFragment
  */
@@ -48,8 +48,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(layoutId =
     lateinit var themeUtils: ThemeUtils
 
     private val navGraphIds = listOf(
-        R.navigation.navigation_characters_list_graph,
-        R.navigation.navigation_characters_favorites_graph,
         R.navigation.navigation_abbreviations_graph
     )
 

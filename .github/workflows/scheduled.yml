@@ -9,8 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:
-      MARVEL_KEY_PUBLIC: ${{ secrets.MARVEL_KEY_PUBLIC }}
-      MARVEL_KEY_PRIVATE: ${{ secrets.MARVEL_KEY_PRIVATE }}
       SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
       SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
       SIGNING_STORE_FILE: ${{ secrets.SIGNING_STORE_FILE }}
@@ -30,8 +28,6 @@ jobs:
 
       - name: Secrets
         run: |
-          echo "marvel.key.public=$MARVEL_KEY_PUBLIC" >> local.properties
-          echo "marvel.key.private=$MARVEL_KEY_PRIVATE" >> local.properties
           echo "signing.key.alias=$SIGNING_KEY_ALIAS" >> local.properties
           echo "signing.key.password=$SIGNING_KEY_PASSWORD" >> local.properties
           echo "signing.store.file=$SIGNING_STORE_FILE" >> local.properties

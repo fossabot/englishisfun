@@ -5,7 +5,5 @@
 
     <!--Dynamic module titles-->
     <string name="feature_home">Home</string>
-    <string name="feature_characters_list">Characters List</string>
-    <string name="feature_characters_favorite">Characters Favorite</string>
     <string name="feature_abbreviations">Abbreviations</string>
 </resources>

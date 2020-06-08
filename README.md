@@ -31,7 +31,7 @@ The project is on the first stage, I am defining the application architecture an
 
 ## Contributing
 
-:loudspeaker: If you like the project and would like to contribute to them, just let me know and we can split some of the tasks. :loudspeaker:
+:loudspeaker: If you like the project and would like to contribute to it, just let me know. :loudspeaker:
 
 ## Author
 

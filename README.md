@@ -21,6 +21,7 @@ on the application are:
 | ------------------ |-------------- |
 | Chat Abbreviations | :x:           |
 | Conditionals       | :x:           |
+| Exam Preparation   | :x:           |
 | Grammar Tenses     | :x:           |
 | Idioms             | :x:           |
 | Modal Verbs        | :x:           |

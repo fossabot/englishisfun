@@ -114,7 +114,7 @@ jobs:
 
     - name: Ktlint
       run: ./gradlew ktlint
-      
+
     - name: Spotless
       run: ./gradlew spotlessKotlinCheck
 

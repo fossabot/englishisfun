@@ -32,13 +32,13 @@ class AbbreviationItemMapperTest {
     }
 
     @Test
-    fun mapWithEmptyListShouldReturnEmptyList() = runBlocking {
+    fun map_withEmptyList_shouldReturnEmptyList() = runBlocking {
         val list: MutableList<HashMap<String, String>> = mutableListOf()
         assertTrue(mapper.map(list).isEmpty())
     }
 
     @Test
-    fun mapWithNonEmptyListShouldReturnNonEmptyList() = runBlocking {
+    fun map_withNonEmptyList_shouldReturnNonEmptyList() = runBlocking {
         val list: MutableList<HashMap<String, String>> = mutableListOf(
             hashMapOf("abbr" to "Abbr", "desc" to "Desc"),
             hashMapOf("abbr" to "Abbr_2", "desc" to "Desc_2")

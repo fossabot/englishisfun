@@ -40,7 +40,7 @@ object PluginsVersions {
     const val NAVIGATION = "2.2.2"
     const val JACOCO = "0.16.0"
     const val DOKKA = "0.10.1"
-    const val KTLINT = "0.36.0"
+    const val KTLINT = "0.37.0"
     const val SPOTLESS = "3.28.1"
     const val DETEKT = "1.8.0"
     const val GRAPH_GENERATOR = "0.5.0"

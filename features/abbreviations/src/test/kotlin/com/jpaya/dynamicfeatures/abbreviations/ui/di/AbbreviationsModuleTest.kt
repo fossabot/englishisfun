@@ -29,6 +29,7 @@ import io.mockk.*
 import io.mockk.impl.annotations.MockK
 import kotlinx.coroutines.CoroutineScope
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
 import org.junit.Before
 import org.junit.Test
 
@@ -41,12 +42,11 @@ class AbbreviationsModuleTest {
     @Before
     fun setUp() {
         MockKAnnotations.init(this)
+        module = AbbreviationsModule(fragment)
     }
 
     @Test
     fun initializeCharactersListModule_ShouldSetUpCorrectly() {
-        module = AbbreviationsModule(fragment)
-
         assertEquals(fragment, module.fragment)
     }
 
@@ -60,7 +60,6 @@ class AbbreviationsModuleTest {
 
         val factoryCaptor = slot<() -> AbbreviationsListViewModel>()
         val dataFactory = mockk<AbbreviationsPageDataSourceFactory>(relaxed = true)
-        module = AbbreviationsModule(fragment)
         module.providesAbbreviationsListViewModel(dataFactory)
 
         verify { fragment.viewModel(factory = capture(factoryCaptor)) }
@@ -77,7 +76,6 @@ class AbbreviationsModuleTest {
         val scope = mockk<CoroutineScope>()
         every { viewModel.viewModelScope } returns scope
 
-        module = AbbreviationsModule(fragment)
         val dataSource = module.providesAbbreviationsPageDataSource(
             fireStore = fireStore,
             fireStoreProperties = fireStoreProperties,
@@ -92,12 +90,14 @@ class AbbreviationsModuleTest {
     }
 
     @Test
+    fun verifyProvidedAbbreviationItemMapper() {
+        assertNotNull(module.providesAbbreviationItemMapper())
+    }
+
+    @Test
     fun verifyProvidedAbbreviationsListAdapter() {
         val viewModel = mockk<AbbreviationsListViewModel>(relaxed = true)
-
-        module = AbbreviationsModule(fragment)
         val adapter = module.providesAbbreviationsListAdapter(viewModel)
-
         assertEquals(viewModel, adapter.viewModel)
     }
 }

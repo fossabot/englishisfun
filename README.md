@@ -29,6 +29,8 @@ on the application are:
 
 The project is on the first stage, I am defining the application architecture and automating the distribution process.
 
+## Contributing
+
 :loudspeaker: If you like the project and would like to contribute to them, just let me know and we can split some of the tasks. :loudspeaker:
 
 ## Author

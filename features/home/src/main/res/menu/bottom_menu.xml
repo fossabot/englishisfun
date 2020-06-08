@@ -3,14 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="UnusedIds">
     <item
-        android:id="@+id/navigation_characters_list_graph"
-        android:icon="@drawable/ic_list"
-        android:title="@string/home_tab_characters" />
-    <item
-        android:id="@+id/navigation_characters_favorites_graph"
-        android:icon="@drawable/ic_favorites"
-        android:title="@string/home_tab_favorites" />
-    <item
         android:id="@+id/navigation_abbreviations_graph"
         android:icon="@drawable/ic_favorites"
         android:title="@string/home_tab_abbreviations" />

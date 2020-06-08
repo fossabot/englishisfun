@@ -41,8 +41,6 @@ class HomeViewModel @Inject constructor(
         get() = _state
 
     private val navFragmentsIds = setOf(
-        R.id.characters_list_fragment,
-        R.id.characters_favorites_fragment,
         R.id.abbreviations_list_fragment
     )
 

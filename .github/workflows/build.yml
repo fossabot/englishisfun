@@ -11,8 +11,6 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      MARVEL_KEY_PUBLIC: ${{ secrets.MARVEL_KEY_PUBLIC }}
-      MARVEL_KEY_PRIVATE: ${{ secrets.MARVEL_KEY_PRIVATE }}
       SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
       SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
       SIGNING_STORE_FILE: ${{ secrets.SIGNING_STORE_FILE }}
@@ -34,8 +32,6 @@ jobs:
 
     - name: Secrets
       run: |
-        echo "marvel.key.public=$MARVEL_KEY_PUBLIC" >> local.properties
-        echo "marvel.key.private=$MARVEL_KEY_PRIVATE" >> local.properties
         echo "signing.key.alias=$SIGNING_KEY_ALIAS" >> local.properties
         echo "signing.key.password=$SIGNING_KEY_PASSWORD" >> local.properties
         echo "signing.store.file=$SIGNING_STORE_FILE" >> local.properties
@@ -62,8 +58,6 @@ jobs:
         cp commons/views/build/reports/detekt/report.html commons/views/build/reports/detekt/commons_views.html
         cp core/build/reports/detekt/report.html core/build/reports/detekt/core.html
         cp features/abbreviations/build/reports/detekt/report.html features/abbreviations/build/reports/detekt/abbreviations.html
-        cp features/characters_favorites/build/reports/detekt/report.html features/characters_favorites/build/reports/detekt/characters_favorites.html
-        cp features/characters_list/build/reports/detekt/report.html features/characters_list/build/reports/detekt/characters_list.html
         cp features/home/build/reports/detekt/report.html features/home/build/reports/detekt/home.html
         cp libraries/test_utils/build/reports/detekt/report.html libraries/test_utils/build/reports/detekt/test_utils.html
 
@@ -91,16 +85,6 @@ jobs:
       with:
         name: Detekt
         path: features/abbreviations/build/reports/detekt/abbreviations.html
-
-    - uses: actions/upload-artifact@v2
-      with:
-        name: Detekt
-        path: features/characters_favorites/build/reports/detekt/characters_favorites.html
-
-    - uses: actions/upload-artifact@v2
-      with:
-        name: Detekt
-        path: features/characters_list/build/reports/detekt/characters_list.html
 
     - uses: actions/upload-artifact@v2
       with:

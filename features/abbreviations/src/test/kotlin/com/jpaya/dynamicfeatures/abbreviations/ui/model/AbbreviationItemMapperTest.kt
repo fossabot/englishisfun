@@ -33,19 +33,49 @@ class AbbreviationItemMapperTest {
 
     @Test
     fun map_withEmptyList_shouldReturnEmptyList() = runBlocking {
-        val list: MutableList<HashMap<String, String>> = mutableListOf()
+        val list = mutableListOf<HashMap<String, String>>()
         assertTrue(mapper.map(list).isEmpty())
     }
 
     @Test
     fun map_withNonEmptyList_shouldReturnNonEmptyList() = runBlocking {
-        val list: MutableList<HashMap<String, String>> = mutableListOf(
+        val list = mutableListOf(
             hashMapOf("abbr" to "Abbr", "desc" to "Desc"),
             hashMapOf("abbr" to "Abbr_2", "desc" to "Desc_2")
         )
         val expectedResult = mutableListOf(
             AbbreviationItem(1, "Abbr", "Desc"),
             AbbreviationItem(2, "Abbr_2", "Desc_2")
+        )
+        assertEquals(mapper.map(list), expectedResult)
+    }
+
+    @Test
+    fun map_withIncompleteMaps_shouldIgnoreIncompleteMaps() = runBlocking {
+        var list = mutableListOf(
+            hashMapOf("abbr" to "Abbr"),
+            hashMapOf("abbr" to "Abbr_2", "desc" to "Desc_2")
+        )
+        var expectedResult = mutableListOf(
+            AbbreviationItem(1, "Abbr_2", "Desc_2")
+        )
+        assertEquals(mapper.map(list), expectedResult)
+
+        list = mutableListOf(
+            hashMapOf("desc" to "Desc"),
+            hashMapOf("abbr" to "Abbr_2", "desc" to "Desc_2")
+        )
+        expectedResult = mutableListOf(
+            AbbreviationItem(1, "Abbr_2", "Desc_2")
+        )
+        assertEquals(mapper.map(list), expectedResult)
+
+        list = mutableListOf(
+            hashMapOf(),
+            hashMapOf("abbr" to "Abbr", "desc" to "Desc")
+        )
+        expectedResult = mutableListOf(
+            AbbreviationItem(1, "Abbr", "Desc")
         )
         assertEquals(mapper.map(list), expectedResult)
     }

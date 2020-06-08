@@ -113,7 +113,7 @@ jobs:
         path: libraries/test_utils/build/reports/detekt/test_utils.html
 
     - name: Ktlint
-    - run: ./gradlew ktlint
+      run: ./gradlew ktlint
       
     - name: Spotless
       run: ./gradlew spotlessKotlinCheck

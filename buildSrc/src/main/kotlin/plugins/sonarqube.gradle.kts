@@ -31,6 +31,14 @@ configure<SonarQubeExtension> {
         property("sonar.login", getLocalProperty("sonar.login", project))
         property("sonar.androidLint.reportPaths", "build/reports/lint-results-devDebug.xml")
         property("sonar.kotlin.detekt.reportPaths", "build/reports/detekt/report.xml")
-        property("sonar.coverage.jacoco.xmlReportPaths", "build/reports/jacoco/devDebug/jacoco.xml")
+        property("sonar.coverage.jacoco.xmlReportPaths", mutableListOf(
+                "build/reports/jacoco/devDebug/jacoco.xml",
+                "ui/build/reports/jacoco/devDebug/jacoco.xml",
+                "views/build/reports/jacoco/devDebug/jacoco.xml",
+                "abbreviations/build/reports/jacoco/devDebug/jacoco.xml",
+                "home/build/reports/jacoco/devDebug/jacoco.xml",
+                "test_utils/build/reports/jacoco/devDebug/jacoco.xml"
+            )
+        )
     }
 }

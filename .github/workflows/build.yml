@@ -56,7 +56,7 @@ jobs:
 
     - uses: actions/upload-artifact@v2
       with:
-        name: Save detekt reports
+        name: Detekt
         path: ~/work/englishisfun/englishisfun/**/build/reports/detekt/report.html
 
     - name: Ktlint

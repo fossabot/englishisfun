@@ -64,37 +64,7 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: Detekt
-        path: app/build/reports/detekt/app.html
-
-    - uses: actions/upload-artifact@v2
-      with:
-        name: Detekt
-        path: commons/ui/build/reports/detekt/commons_ui.html
-
-    - uses: actions/upload-artifact@v2
-      with:
-        name: Detekt
-        path: commons/views/build/reports/detekt/commons_views.html
-
-    - uses: actions/upload-artifact@v2
-      with:
-        name: Detekt
-        path: core/build/reports/detekt/core.html
-
-    - uses: actions/upload-artifact@v2
-      with:
-        name: Detekt
-        path: features/abbreviations/build/reports/detekt/abbreviations.html
-
-    - uses: actions/upload-artifact@v2
-      with:
-        name: Detekt
-        path: features/home/build/reports/detekt/home.html
-
-    - uses: actions/upload-artifact@v2
-      with:
-        name: Detekt
-        path: libraries/test_utils/build/reports/detekt/test_utils.html
+        path: /**/build/reports/detekt/*.html
 
     - name: Ktlint
       run: ./gradlew ktlint

@@ -64,7 +64,7 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: Detekt
-        path: /**/build/reports/detekt/*.html
+        path: **/build/reports/detekt/*.html
 
     - name: Ktlint
       run: ./gradlew ktlint

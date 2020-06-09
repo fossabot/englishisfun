@@ -4,6 +4,6 @@
     tools:ignore="UnusedResources" >
 
     <!--Dynamic module titles-->
-    <string name="feature_home">Home</string>
-    <string name="feature_abbreviations">Abbreviations</string>
+    <string name="feature_home">Home feature</string>
+    <string name="feature_abbreviations">Abbreviations feature</string>
 </resources>

@@ -2,6 +2,7 @@
 ![CI](https://github.com/jpaya17/englishisfun/workflows/CI/badge.svg)
 [![Kotlin Version](https://img.shields.io/badge/kotlin-1.3.72-blue.svg)](http://kotlinlang.org/)
 [![API](https://img.shields.io/badge/API-21%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=21)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fjpaya17%2Fenglishisfun.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fjpaya17%2Fenglishisfun?ref=badge_shield)
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=jpaya17_englishisfun&metric=alert_status)](https://sonarcloud.io/dashboard?id=jpaya17_englishisfun)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=jpaya17_englishisfun&metric=coverage)](https://sonarcloud.io/dashboard?id=jpaya17_englishisfun)
@@ -60,3 +61,6 @@ The project is on the first stage, I am defining the application architecture an
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fjpaya17%2Fenglishisfun.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fjpaya17%2Fenglishisfun?ref=badge_large)
